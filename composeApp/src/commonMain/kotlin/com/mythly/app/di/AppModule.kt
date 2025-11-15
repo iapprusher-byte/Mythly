@@ -18,5 +18,6 @@ fun getAppModules() = listOf(
     platformModule,
     sharedModule,
     dataModule,
-    domainModule
+    domainModule,
+    presentationModule
 )
