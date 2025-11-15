@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.mythly.app.domain.model.Deity
 import com.mythly.app.domain.model.Epic
 import com.mythly.app.domain.model.StoryUiState
-import com.mythly.app.domain.usecase.FilterStoriesUseCase
 import com.mythly.app.domain.usecase.GetAllStoriesUseCase
 import com.mythly.app.domain.usecase.SearchStoriesUseCase
 import kotlinx.coroutines.flow.*
@@ -30,8 +29,7 @@ data class LibraryUiState(
 
 class LibraryViewModel(
     private val getAllStoriesUseCase: GetAllStoriesUseCase,
-    private val searchStoriesUseCase: SearchStoriesUseCase,
-    private val filterStoriesUseCase: FilterStoriesUseCase
+    private val searchStoriesUseCase: SearchStoriesUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LibraryUiState())

@@ -1,8 +1,6 @@
 package com.mythly.app.presentation.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.SearchOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -12,11 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Search
 
 @Composable
 fun EmptyState(
     message: String,
-    icon: ImageVector = Icons.Default.SearchOff,
+    icon: ImageVector = FeatherIcons.Search,
     modifier: Modifier = Modifier
 ) {
     Box(

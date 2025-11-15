@@ -3,9 +3,6 @@ package com.mythly.app.presentation.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessTime
-import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +13,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.mythly.app.domain.model.StoryUiState
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Clock
+import compose.icons.feathericons.CheckCircle
 
 @Composable
 fun StoryCard(
@@ -59,7 +59,7 @@ fun StoryCard(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Icon(
-                                imageVector = Icons.Default.CheckCircle,
+                                imageVector = FeatherIcons.CheckCircle,
                                 contentDescription = "Read",
                                 modifier = Modifier.size(16.dp),
                                 tint = MaterialTheme.colorScheme.primary
@@ -124,7 +124,7 @@ fun StoryCard(
                         horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.AccessTime,
+                            imageVector = FeatherIcons.Clock,
                             contentDescription = "Read time",
                             modifier = Modifier.size(16.dp),
                             tint = MaterialTheme.colorScheme.onSurfaceVariant

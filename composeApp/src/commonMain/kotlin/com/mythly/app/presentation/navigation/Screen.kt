@@ -1,17 +1,11 @@
 package com.mythly.app.presentation.navigation
 
-import kotlinx.serialization.Serializable
-
-sealed interface Screen {
-    @Serializable
-    data object Today : Screen
-
-    @Serializable
-    data object Library : Screen
-
-    @Serializable
-    data object Profile : Screen
-
-    @Serializable
-    data class StoryReader(val storyId: String) : Screen
+sealed class Screen(val route: String) {
+    data object Today : Screen("today")
+    data object Library : Screen("library")
+    data object Profile : Screen("profile")
+    data object StoryReader : Screen("story/{storyId}") {
+        fun createRoute(storyId: String) = "story/$storyId"
+    }
 }
+

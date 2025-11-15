@@ -60,6 +60,8 @@ kotlin {
             implementation(libs.supabase.postgrest)
             implementation(libs.supabase.storage)
             implementation(libs.ktor.client.core)
+            implementation(libs.composeIcons.feather)
+            implementation(libs.composeIcons.fontAwesome)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

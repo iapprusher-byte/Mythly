@@ -3,9 +3,6 @@ package com.mythly.app.presentation.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MenuBook
-import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -18,6 +15,9 @@ import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.components.StreakWidget
 import com.mythly.app.presentation.viewmodel.ProfileViewModel
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.BookOpen
+import compose.icons.feathericons.Clock
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -96,7 +96,7 @@ private fun ProfileContent(
 
             // Stories Read Card
             StatCard(
-                icon = Icons.Default.MenuBook,
+                icon = FeatherIcons.BookOpen,
                 title = "Stories Read",
                 value = "${uiState.userStats.totalStoriesRead}",
                 subtitle = "Total stories completed"
@@ -104,7 +104,7 @@ private fun ProfileContent(
 
             // Reading Time Card
             StatCard(
-                icon = Icons.Default.Timer,
+                icon = FeatherIcons.Clock,
                 title = "Reading Time",
                 value = "${uiState.userStats.totalReadingTimeMinutes} min",
                 subtitle = "Time spent reading"

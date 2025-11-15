@@ -48,14 +48,10 @@ private fun MythlyApp() {
                     currentRoute = currentRoute,
                     onNavigate = { route ->
                         navController.navigate(route) {
-                            // Pop up to the start destination
-                            popUpTo(Screen.Today.route) {
-                                saveState = true
-                            }
+                            // Pop up to the start destination and save state
+                            popUpTo(Screen.Today.route)
                             // Avoid multiple copies of the same destination
                             launchSingleTop = true
-                            // Restore state when reselecting a previously selected item
-                            restoreState = true
                         }
                     }
                 )

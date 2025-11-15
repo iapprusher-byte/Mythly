@@ -23,6 +23,7 @@ ktor = "3.0.2"
 datastore = "1.1.1"
 ksp = "2.1.0-1.0.29"
 navigation = "2.8.0-alpha10"
+composeIcons = "1.1.1"
 
 [libraries]
 # Testing
@@ -80,6 +81,10 @@ datastore-preferences = { module = "androidx.datastore:datastore-preferences", v
 
 # Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+# Compose Icons
+composeIcons-feather = { module = "br.com.devsrsouza.compose.icons:feather", version.ref = "composeIcons" }
+composeIcons-fontAwesome = { module = "br.com.devsrsouza.compose.icons:font-awesome", version.ref = "composeIcons" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

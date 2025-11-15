@@ -3,8 +3,6 @@ package com.mythly.app.presentation.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -17,6 +15,8 @@ import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.components.StoryCard
 import com.mythly.app.presentation.viewmodel.LibraryViewModel
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Search
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -51,7 +51,7 @@ fun LibraryScreen(
                 placeholder = { Text("Search stories...") },
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Default.Search,
+                        imageVector = FeatherIcons.Search,
                         contentDescription = "Search"
                     )
                 },

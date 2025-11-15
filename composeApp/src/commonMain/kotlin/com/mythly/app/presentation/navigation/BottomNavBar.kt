@@ -1,12 +1,12 @@
 package com.mythly.app.presentation.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.LibraryBooks
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Home
+import compose.icons.feathericons.Book
+import compose.icons.feathericons.User
 
 data class BottomNavItem(
     val route: String,
@@ -17,17 +17,17 @@ data class BottomNavItem(
 val bottomNavItems = listOf(
     BottomNavItem(
         route = "today",
-        icon = Icons.Default.Home,
+        icon = FeatherIcons.Home,
         label = "Today"
     ),
     BottomNavItem(
         route = "library",
-        icon = Icons.Default.LibraryBooks,
+        icon = FeatherIcons.Book,
         label = "Library"
     ),
     BottomNavItem(
         route = "profile",
-        icon = Icons.Default.Person,
+        icon = FeatherIcons.User,
         label = "Profile"
     )
 )

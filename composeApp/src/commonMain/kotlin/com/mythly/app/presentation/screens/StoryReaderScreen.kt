@@ -3,10 +3,6 @@ package com.mythly.app.presentation.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,6 +14,9 @@ import coil3.compose.AsyncImage
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.viewmodel.StoryReaderViewModel
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.ArrowLeft
+import compose.icons.feathericons.Heart
 import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,7 +39,7 @@ fun StoryReaderScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = FeatherIcons.ArrowLeft,
                             contentDescription = "Back"
                         )
                     }
@@ -49,11 +48,7 @@ fun StoryReaderScreen(
                     uiState.story?.let { story ->
                         IconButton(onClick = { viewModel.toggleFavorite() }) {
                             Icon(
-                                imageVector = if (story.isFavorite) {
-                                    Icons.Default.Favorite
-                                } else {
-                                    Icons.Default.FavoriteBorder
-                                },
+                                imageVector = FeatherIcons.Heart,
                                 contentDescription = "Favorite",
                                 tint = if (story.isFavorite) {
                                     MaterialTheme.colorScheme.error
@@ -238,7 +233,7 @@ private fun StoryContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Favorite,
+                        imageVector = FeatherIcons.Heart,
                         contentDescription = "Completed",
                         tint = MaterialTheme.colorScheme.primary
                     )
