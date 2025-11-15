@@ -9,6 +9,7 @@ import com.mythly.app.domain.model.UserStats
 import com.mythly.app.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.datetime.Clock
 import kotlin.math.abs
 
 class UserRepositoryImpl(
@@ -23,7 +24,7 @@ class UserRepositoryImpl(
 
     override suspend fun updateStreak() {
         val stats = userStatsDao.getUserStatsOnce() ?: UserStatsEntity()
-        val currentTime = System.currentTimeMillis()
+        val currentTime = Clock.System.now().toEpochMilliseconds()
         val oneDayMs = 24 * 60 * 60 * 1000L
 
         val newStreak = when {

@@ -7,6 +7,7 @@ import com.mythly.app.domain.repository.StoryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.datetime.Clock
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -55,7 +56,7 @@ class StoryRepositoryImpl(
     }
 
     override suspend fun markAsRead(storyId: String) {
-        val timestamp = System.currentTimeMillis()
+        val timestamp = Clock.System.now().toEpochMilliseconds()
         storyDao.markAsRead(storyId, true, timestamp)
     }
 

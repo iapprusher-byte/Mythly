@@ -3,6 +3,7 @@ package com.mythly.app.domain.usecase
 import com.mythly.app.domain.model.ReadingSession
 import com.mythly.app.domain.repository.StoryRepository
 import com.mythly.app.domain.repository.UserRepository
+import kotlinx.datetime.Clock
 
 class MarkStoryReadUseCase(
     private val storyRepository: StoryRepository,
@@ -28,8 +29,8 @@ class MarkStoryReadUseCase(
         val session = ReadingSession(
             id = generateId(),
             storyId = storyId,
-            startedAt = System.currentTimeMillis(),
-            completedAt = System.currentTimeMillis(),
+            startedAt = Clock.System.now().toEpochMilliseconds(),
+            completedAt = Clock.System.now().toEpochMilliseconds(),
             readingTimeSeconds = readingTimeSeconds,
             usedAudio = usedAudio
         )
@@ -41,6 +42,6 @@ class MarkStoryReadUseCase(
     }
 
     private fun generateId(): String {
-        return "${System.currentTimeMillis()}-${(0..9999).random()}"
+        return "${Clock.System.now().toEpochMilliseconds()}-${(0..9999).random()}"
     }
 }
