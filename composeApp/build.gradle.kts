@@ -62,6 +62,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.composeIcons.feather)
             implementation(libs.composeIcons.fontAwesome)
+            implementation(libs.kermit)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

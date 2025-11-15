@@ -2,6 +2,7 @@ package com.mythly.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import com.mythly.app.domain.model.StoryUiState
 import com.mythly.app.domain.model.UserStats
 import com.mythly.app.domain.usecase.GetTodayStoryUseCase
@@ -23,6 +24,8 @@ class TodayViewModel(
     private val loadInitialContentUseCase: LoadInitialContentUseCase
 ) : ViewModel() {
 
+    private val logger = Logger.withTag("TodayViewModel")
+
     private val _uiState = MutableStateFlow(TodayUiState())
     val uiState: StateFlow<TodayUiState> = _uiState.asStateFlow()
 
@@ -32,11 +35,13 @@ class TodayViewModel(
 
     fun loadTodayContent() {
         viewModelScope.launch {
+            logger.d { "Loading today's content..." }
             _uiState.update { it.copy(isLoading = true, error = null) }
 
             // Load initial content from JSON if needed
             loadInitialContentUseCase()
                 .onFailure { throwable ->
+                    logger.e(throwable = throwable) { "Failed to load initial content: ${throwable.message}" }
                     _uiState.update {
                         it.copy(
                             isLoading = false,
@@ -46,9 +51,11 @@ class TodayViewModel(
                     return@launch
                 }
 
+            logger.d { "Loading user stats..." }
             // Collect user stats
             getUserStatsUseCase()
                 .catch { throwable ->
+                    logger.e(throwable = throwable) { "Failed to load user stats: ${throwable.message}" }
                     _uiState.update {
                         it.copy(
                             error = throwable.message ?: "Failed to load user stats"
@@ -56,12 +63,15 @@ class TodayViewModel(
                     }
                 }
                 .collectLatest { stats ->
+                    logger.d { "User stats loaded: streak=${stats.currentStreak}, storiesRead=${stats.totalStoriesRead}" }
                     _uiState.update { it.copy(userStats = stats) }
                 }
 
+            logger.d { "Loading today's story..." }
             // Get today's story
             getTodayStoryUseCase()
                 .onSuccess { story ->
+                    logger.i { "Today's story loaded successfully: ${story?.story?.title}" }
                     _uiState.update {
                         it.copy(
                             isLoading = false,
@@ -71,6 +81,7 @@ class TodayViewModel(
                     }
                 }
                 .onFailure { throwable ->
+                    logger.e(throwable = throwable) { "Failed to load today's story: ${throwable.message}" }
                     _uiState.update {
                         it.copy(
                             isLoading = false,
