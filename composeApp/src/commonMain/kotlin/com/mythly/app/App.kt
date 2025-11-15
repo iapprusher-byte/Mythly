@@ -6,23 +6,18 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.mythly.app.di.getAppModules
 import com.mythly.app.presentation.navigation.MythlyBottomNavBar
 import com.mythly.app.presentation.navigation.MythlyNavGraph
 import com.mythly.app.presentation.navigation.Screen
 import com.mythly.app.presentation.theme.MythlyTheme
-import org.koin.compose.KoinApplication
 
 @Composable
 fun App() {
-    KoinApplication(
-        application = {
-            modules(getAppModules())
-        }
-    ) {
-        MythlyTheme {
-            MythlyApp()
-        }
+    // Koin is initialized at platform level:
+    // - Android: MythlyApplication.kt
+    // - iOS: MainViewController.kt (needs to be added)
+    MythlyTheme {
+        MythlyApp()
     }
 }
 
