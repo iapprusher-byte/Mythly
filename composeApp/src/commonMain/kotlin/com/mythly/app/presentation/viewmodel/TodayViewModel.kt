@@ -51,24 +51,24 @@ class TodayViewModel(
                     return@launch
                 }
 
-            logger.d { "Loading user stats..." }
-            // Collect user stats
-            getUserStatsUseCase()
-                .catch { throwable ->
-                    logger.e(throwable = throwable) { "Failed to load user stats: ${throwable.message}" }
-                    _uiState.update {
-                        it.copy(
-                            error = throwable.message ?: "Failed to load user stats"
-                        )
+            // Collect user stats in a separate coroutine (non-blocking)
+            logger.d { "Starting user stats collection..." }
+            launch {
+                getUserStatsUseCase()
+                    .catch { throwable ->
+                        logger.e(throwable = throwable) { "Failed to load user stats: ${throwable.message}" }
+                        _uiState.update {
+                            it.copy(error = throwable.message ?: "Failed to load user stats")
+                        }
                     }
-                }
-                .collectLatest { stats ->
-                    logger.d { "User stats loaded: streak=${stats.currentStreak}, storiesRead=${stats.totalStoriesRead}" }
-                    _uiState.update { it.copy(userStats = stats) }
-                }
+                    .collect { stats ->
+                        logger.d { "User stats loaded: streak=${stats.currentStreak}, storiesRead=${stats.totalStoriesRead}" }
+                        _uiState.update { it.copy(userStats = stats) }
+                    }
+            }
 
+            // Get today's story (executes immediately, doesn't wait for stats flow)
             logger.d { "Loading today's story..." }
-            // Get today's story
             getTodayStoryUseCase()
                 .onSuccess { story ->
                     logger.i { "Today's story loaded successfully: ${story?.story?.title}" }
