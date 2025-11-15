@@ -1,0 +1,125 @@
+{
+  "stories": [
+    {
+      "id": "krishna_001",
+      "title": "Krishna and the Butter Thief",
+      "content": "Young Krishna was known throughout Vrindavan for his mischievous nature. One day, Mother Yashoda caught him stealing butter from the pot hanging from the ceiling.\n\nWhen questioned, Krishna's innocent smile and butter-smeared face melted her heart. Instead of punishment, she embraced him lovingly.\n\nThe divine child's playfulness taught everyone that God is not distant or fearsome, but close, loving, and accessible to all who approach with pure hearts.\n\nThis simple act of stealing butter represents the soul's yearning for divine sweetness, and God's willingness to be caught by those who seek Him with love.",
+      "moralLesson": "Divine love is playful and accessible. God delights in being close to those who seek Him with pure, childlike devotion.",
+      "deity": "KRISHNA",
+      "epic": "BHAGAVATA_PURANA",
+      "values": ["DEVOTION", "COMPASSION"],
+      "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704067200000,
+      "sanskritTitle": "माखन चोर कृष्ण"
+    },
+    {
+      "id": "rama_001",
+      "title": "Rama's Promise to Jatayu",
+      "content": "As Rama searched for Sita in the forest, he found the noble vulture Jatayu mortally wounded. The brave bird had fought Ravana while trying to protect Sita.\n\nWith his last breath, Jatayu told Rama the direction Ravana had taken Sita. Rama held the dying bird tenderly, tears flowing from his eyes.\n\nHe performed the final rites for Jatayu himself, honoring him as he would his own father. This act showed that nobility and dharma transcend all boundaries of birth and species.\n\nJatayu's sacrifice and Rama's compassion teach us that true dharma recognizes the nobility of heart, not the accident of birth.",
+      "moralLesson": "True nobility lies in righteous action, not birth. Honor and respect should be given to those who uphold dharma, regardless of their form.",
+      "deity": "RAMA",
+      "epic": "RAMAYANA",
+      "values": ["COMPASSION", "DUTY", "LOYALTY"],
+      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704153600000
+    },
+    {
+      "id": "ganesha_001",
+      "title": "How Ganesha Got His Wisdom",
+      "content": "Once, the gods decided to choose the wisest among them. Shiva proposed a challenge: whoever could circle the universe three times first would be declared the wisest.\n\nGods mounted their vahanas and raced across the cosmos. But Ganesha, sitting calmly on his mouse, simply circled his parents Shiva and Parvati three times.\n\nWhen questioned, Ganesha replied, 'My parents are my entire universe. For me, there is nothing beyond them.'\n\nImpressed by his wisdom and devotion, the gods declared Ganesha the winner. He understood that true knowledge comes from recognizing what truly matters.",
+      "moralLesson": "True wisdom lies in understanding what truly matters. The greatest knowledge is recognizing the divine in what is close to us, not in seeking far and wide.",
+      "deity": "GANESHA",
+      "epic": "FOLKLORE",
+      "values": ["WISDOM", "DEVOTION", "HUMILITY"],
+      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800",
+      "readTimeMinutes": 3,
+      "datePublished": 1704240000000
+    },
+    {
+      "id": "hanuman_001",
+      "title": "Hanuman's Leap of Faith",
+      "content": "Standing on the shore of the vast ocean, Hanuman gazed at distant Lanka where Sita was imprisoned. The other vanaras doubted whether anyone could cross the mighty waters.\n\nJambavan reminded Hanuman of his forgotten powers and divine strength. As memories of his abilities returned, Hanuman grew in size and confidence.\n\nWith a mighty roar of 'Jai Shri Ram!', he leaped across the ocean in a single bound, his faith in Rama giving him infinite strength.\n\nThis leap symbolizes the power of self-belief combined with devotion. When we remember our true nature and dedicate our actions to the divine, nothing is impossible.",
+      "moralLesson": "When faith and self-belief unite, the impossible becomes possible. Remember your inner strength and dedicate your actions to a higher purpose.",
+      "deity": "HANUMAN",
+      "epic": "RAMAYANA",
+      "values": ["COURAGE", "DEVOTION", "PERSEVERANCE"],
+      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704326400000
+    },
+    {
+      "id": "shiva_001",
+      "title": "Shiva's Dance of Transformation",
+      "content": "The gods were troubled by Tripurasura, a demon who had become invincible through boons. They approached Shiva for help.\n\nShiva mounted his chariot, which was crafted from the very elements of the universe. As he released his arrow, he began the cosmic dance - the Tandava.\n\nWith each movement of his dance, creation and destruction moved in perfect harmony. The arrow found its mark, and the demon's fortress crumbled.\n\nBut Shiva continued to dance, reminding everyone that the universe is in constant transformation. What seems like destruction is often necessary for new creation.",
+      "moralLesson": "Change is the only constant. Destruction and creation are two sides of the same cosmic dance. Embrace transformation as a natural part of existence.",
+      "deity": "SHIVA",
+      "epic": "SHIVA_PURANA",
+      "values": ["WISDOM", "DHARMA", "COURAGE"],
+      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704412800000
+    },
+    {
+      "id": "durga_001",
+      "title": "Durga's Victory Over Mahishasura",
+      "content": "When the buffalo demon Mahishasura conquered the heavens through his penance and power, the gods were helpless. No male deity could defeat him due to a boon he had received.\n\nIn their desperation, all the gods combined their energies to create Goddess Durga. Each god gave her a weapon - Shiva's trident, Vishnu's discus, Indra's thunderbolt.\n\nFor nine days and nights, Durga battled the shape-shifting demon. Finally, on the tenth day, she slayed Mahishasura, restoring cosmic balance.\n\nThis victory celebrates the triumph of good over evil and the supreme power of the divine feminine - Shakti - the energy that sustains the universe.",
+      "moralLesson": "The divine feminine power (Shakti) is the ultimate force in the universe. Good always triumphs over evil, though the battle may be long and fierce.",
+      "deity": "DURGA",
+      "epic": "DEVI_MAHATMYA",
+      "values": ["COURAGE", "DHARMA", "PERSEVERANCE"],
+      "imageUrl": "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=800",
+      "readTimeMinutes": 5,
+      "datePublished": 1704499200000
+    },
+    {
+      "id": "krishna_002",
+      "title": "The Lifting of Govardhan Hill",
+      "content": "The people of Vrindavan prepared grand offerings for Indra, the god of rain. Young Krishna questioned this tradition, asking why they worshipped a distant god instead of the mountain and cows that directly nourished them.\n\nThe villagers agreed and worshipped Govardhan hill instead. Enraged, Indra sent torrential rains to flood Vrindavan.\n\nSeven-year-old Krishna lifted the entire Govardhan hill on his little finger, creating a massive umbrella for all the villagers and their cattle.\n\nFor seven days and nights, Krishna held the mountain effortlessly, teaching that divine protection comes to those who question blind rituals and choose wisdom over tradition.",
+      "moralLesson": "Question traditions that don't serve the greater good. True divinity protects those who act with wisdom and compassion, not those who follow rituals blindly.",
+      "deity": "KRISHNA",
+      "epic": "BHAGAVATA_PURANA",
+      "values": ["WISDOM", "COURAGE", "COMPASSION"],
+      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704585600000
+    },
+    {
+      "id": "rama_002",
+      "title": "Rama and the Squirrel",
+      "content": "During the construction of the bridge to Lanka, mighty vanaras carried huge boulders. A tiny squirrel, wanting to help, carried small pebbles and rolled in the sand to fill gaps.\n\nSome vanaras laughed at the squirrel's insignificant contribution. But Rama gently picked up the squirrel and stroked its back lovingly.\n\nThe three lines that appeared on the squirrel's back from Rama's fingers became a blessing for all squirrels thereafter.\n\nRama declared that the squirrel's devotion and effort were as valuable as the vanaras' strength. It's the purity of intention, not the magnitude of action, that matters.",
+      "moralLesson": "Every contribution, no matter how small, has value when done with pure devotion. The divine values the spirit of service over the size of the offering.",
+      "deity": "RAMA",
+      "epic": "RAMAYANA",
+      "values": ["HUMILITY", "COMPASSION", "DEVOTION"],
+      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800",
+      "readTimeMinutes": 3,
+      "datePublished": 1704672000000
+    },
+    {
+      "id": "ganesha_002",
+      "title": "Ganesha Writes the Mahabharata",
+      "content": "When Sage Vyasa was ready to compose the great epic Mahabharata, he needed a scribe who could write at the speed of his thought.\n\nLord Ganesha agreed, but set a condition: Vyasa must dictate without pause. Vyasa countered: Ganesha must understand each verse before writing it.\n\nWhenever Vyasa needed to think, he would compose a complex verse, giving himself time while Ganesha pondered its meaning.\n\nThis collaboration between divine wisdom (Vyasa) and divine intelligence (Ganesha) created one of humanity's greatest treasures, teaching us that knowledge requires both inspiration and understanding.",
+      "moralLesson": "True learning requires both listening and understanding. Knowledge gained without comprehension is worthless; take time to understand deeply before moving forward.",
+      "deity": "GANESHA",
+      "epic": "MAHABHARATA",
+      "values": ["WISDOM", "PATIENCE", "HUMILITY"],
+      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704758400000
+    },
+    {
+      "id": "vishnu_001",
+      "title": "Vishnu's Vamana Avatar",
+      "content": "King Bali, through his righteousness and penance, had conquered the three worlds. Though a good king, his power threatened the cosmic balance.\n\nVishnu appeared as Vamana, a dwarf brahmin, asking for just three paces of land as alms. Bali, known for his generosity, immediately agreed.\n\nVamana then expanded to cosmic proportions. With one step he covered the earth, with the second the heavens. For the third step, he asked Bali where to place it.\n\nBali, recognizing the divine, offered his own head. Pleased by his humility and keeping dharma, Vishnu granted him the netherworld to rule and blessed him with eternal devotion.",
+      "moralLesson": "True greatness lies in humility, not in power. Even when we lose everything material, surrendering to the divine with grace brings eternal blessings.",
+      "deity": "VISHNU",
+      "epic": "BHAGAVATA_PURANA",
+      "values": ["HUMILITY", "DHARMA", "DEVOTION"],
+      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800",
+      "readTimeMinutes": 4,
+      "datePublished": 1704844800000
+    }
+  ]
+}

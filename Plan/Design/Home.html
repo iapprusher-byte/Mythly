@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mythly - Home Screen</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff9933",
+                        "background-light": "#FFFBF7",
+                        "background-dark": "#23190f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.25rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-feature-settings: "liga";
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Inter', sans-serif; }
+    </style>
+    <style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative mx-auto flex w-full max-w-[393px] flex-col overflow-x-hidden bg-background-light dark:bg-background-dark">
+    <!-- Top App Bar -->
+    <header class="sticky top-0 z-10 flex h-16 w-full items-center justify-between bg-white px-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] dark:bg-gray-800">
+        <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-4xl text-[#FF9933]">compost</span>
+            <h1 class="font-serif text-2xl font-semibold text-[#212121] dark:text-white" style="letter-spacing: -0.3px;">Mythly</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative">
+                <span class="material-symbols-outlined text-2xl text-[#757575] opacity-70 dark:text-gray-300">notifications</span>
+                <div class="absolute right-0 top-0 h-2 w-2 rounded-full bg-[#FF5722]"></div>
+            </div>
+            <span class="material-symbols-outlined text-2xl text-[#757575] opacity-70 dark:text-gray-300">settings</span>
+        </div>
+    </header>
+    <!-- Scrollable Content -->
+    <main class="flex-1 overflow-y-auto pb-24">
+        <div class="p-4">
+            <!-- Streak Card -->
+            <div class="relative flex h-[104px] w-full items-center overflow-hidden rounded-lg bg-[#FF9933] p-6 text-white shadow-[0_8px_24px_rgba(255,153,51,0.28),0_4px_12px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)]">
+                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[rgba(230,81,0,0.35)]"></div>
+                <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-transparent to-[rgba(255,255,255,0.2)]"></div>
+                <div class="absolute bottom-0 right-0 h-[55%] w-[55%] bg-[url('https://www.transparenttextures.com/patterns/sacred-geometry.png')] opacity-8"></div>
+                <div class="z-10 flex items-center gap-4">
+                    <img class="h-14 w-14" data-alt="Stylized flame icon with multiple licks in yellow, orange, and red" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY2i-RCCv0GJ4e0QdjuEieGc-6Xn-IFEDAed2uX9o2xsA0BLy6KP4uTO3R2IAxalprMpGQnDxaA6AJ3_781r_buSg8PQ3vQJi-IbpsmuR-h0nL4-wq68IpstfNu4I4ojPT8U2qhQIHdY8LjCFTq8hZ6J53SRAxbJVwE713n1HOMxHCjEcngif9ouUFT34hp4qXmrCPrp_le68zC_Wd_zgJE5GBZajntKWrApBdcJWF7nKQ60Jvqy5TGBRgcxBuzdiXY3dcR8AQc64"/>
+                    <div>
+                        <p class="font-serif text-3xl font-bold text-white" style="text-shadow: 0px 2px 6px rgba(0,0,0,0.2); letter-spacing: -0.5px; line-height: 32px;">7 Day Streak</p>
+                        <p class="mt-1.5 font-display text-sm font-medium text-[rgba(255,255,255,0.92)]" style="line-height: 20px;">You're on fire! Don't break it now 🔥</p>
+                    </div>
+                </div>
+                <div class="absolute right-5 top-1/2 z-10 h-16 w-16 -translate-y-1/2 rounded-[14px] border border-[rgba(255,255,255,0.25)] bg-[rgba(255,255,255,0.18)] p-2.5" style="backdrop-filter: blur(10px);">
+                    <p class="text-center font-display text-[10px] font-medium uppercase tracking-[0.5px] text-[rgba(255,255,255,0.8)]">THIS WEEK</p>
+                    <div class="mt-1 grid grid-cols-7 gap-1">
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white"></div>
+                        <div class="h-[7px] w-[7px] rounded-full bg-white ring-2 ring-[#FFD54F]"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Story Card -->
+            <div class="mt-6 flex h-[440px] flex-col overflow-hidden rounded-xl bg-white shadow-[0_12px_32px_rgba(0,0,0,0.14),0_4px_12px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.06)] dark:bg-gray-800">
+                <div class="relative h-full bg-cover bg-center" data-alt="Stylized illustration of Krishna playing the flute with cows at twilight, with a divine glow" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHDiB9MwFb9O_d1-V_0zy3GGPwuyoT9l1jDuCWsOUMQmFc7zq1J91chRog1KilWzKHCT49MttcqI6BmCC9VedXw_GmlxEvRhPmcB17QKit2zSVrXLXTM51j7IwoBbX2IT30rs6JwfDPLVyS1r_gO34ke58N38CQlcrIL5TMDGbOOvBqsgF05DwwE_8MH1rw7PUs4dANDH5mHxRJuGpVZDAt41h68LQ_Gl4NEVxd6tiB4lrc7dhua5ytG4XXNMzi80Hd7x-Qm-Ypa8");'>
+                    <div class="absolute left-5 top-4 flex h-8 items-center gap-1.5 rounded-full bg-[#64B5F6] bg-opacity-95 px-3 py-2 shadow-[0_3px_10px_rgba(33,150,243,0.35)]">
+                        <span class="material-symbols-outlined text-base text-white">auto_stories</span>
+                        <p class="font-display text-xs font-semibold uppercase tracking-wider text-white">Today's Story</p>
+                    </div>
+                    <div class="absolute bottom-6 left-5 right-5 text-white">
+                        <h2 class="font-serif text-3xl font-bold leading-9" style="text-shadow: 0px 3px 10px rgba(0,0,0,0.5); letter-spacing: -0.3px;">The Butter Thief of Vrindavan</h2>
+                        <div class="mt-3 flex items-center gap-2 font-display text-sm font-medium text-[rgba(255,255,255,0.95)]" style="text-shadow: 0px 2px 6px rgba(0,0,0,0.4);">
+                            <span>Krishna</span>
+                            <span>•</span>
+                            <span>Puranas</span>
+                            <span>•</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-base">schedule</span>
+                                <span>4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Quick Actions -->
+        <div class="mt-1 flex items-center gap-3 overflow-x-auto px-4 pb-2" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <button class="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-tr from-[#FF9933] to-[#E65100] px-4 text-white shadow-[0_4px_14px_rgba(255,153,51,0.32)]">
+                <span class="material-symbols-outlined text-xl">play_circle</span>
+                <p class="font-display text-sm font-semibold tracking-wide">Continue Reading</p>
+            </button>
+            <button class="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border-2 border-[#FF9933] bg-white px-4 text-[#FF9933] shadow-[0_2px_10px_rgba(0,0,0,0.08)] dark:bg-gray-700 dark:text-primary">
+                <span class="material-symbols-outlined text-xl">shuffle</span>
+                <p class="font-display text-sm font-semibold tracking-wide">Random Story</p>
+            </button>
+            <button class="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#FCE4EC] to-[#F8BBD0] px-4 text-[#C2185B] shadow-[0_3px_12px_rgba(244,143,177,0.25)]">
+                <span class="material-symbols-outlined text-xl">lightbulb</span>
+                <p class="font-display text-sm font-semibold tracking-wide">Today's Wisdom</p>
+            </button>
+            <button class="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#E3F2FD] to-[rgba(100,181,246,0.2)] px-4 text-[#1976D2] shadow-[0_3px_12px_rgba(100,181,246,0.22)]">
+                <span class="material-symbols-outlined text-xl">Sparkle</span>
+                <p class="font-display text-sm font-semibold tracking-wide">Surprise Me</p>
+            </button>
+        </div>
+        <!-- For You Section -->
+        <div class="relative mt-9">
+            <div class="absolute inset-x-0 -top-16 mx-auto h-[600px] w-[600px] bg-[url('https://www.transparenttextures.com/patterns/az-subtle.png')] opacity-5" style="background-color: #F5F5DC;"></div>
+            <div class="relative z-10 flex items-center justify-between px-5">
+                <div class="flex items-center gap-2">
+                    <h2 class="font-serif text-2xl font-bold text-[#212121] dark:text-white">For You</h2>
+                    <span class="material-symbols-outlined text-2xl text-[#FF9933] opacity-60">compost</span>
+                </div>
+                <a class="flex items-center gap-1 text-sm font-medium text-[#64B5F6]" href="#">
+                    See All
+                    <span class="material-symbols-outlined text-base">chevron_right</span>
+                </a>
+            </div>
+            <div class="mt-5 flex gap-4 overflow-x-auto px-4 pb-2" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="w-60 shrink-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.08)] dark:bg-gray-800">
+                    <div class="relative h-[180px] bg-cover bg-center" data-alt="A beautiful statue of Ganesha adorned with marigold garlands" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY3-r8aKCca3Z9IX8szFAKgtkQGuTvwPi2iOtKzaKaVoUSwY-t9o8sD6SxOsRW22SGu_12PMFZkE4_-YwDGt1gIlVfmJ8sxGoavoJKfRnWgPaASL4d3cajQB3b6gPpE1awOgaffqLqX9EB2aKC7FdU0w4f8m_VA6-iYxyfKram1YjhlTJ3nhbmRJFK4_c7EYWpWNL412xkpM3VwUjTpUgLKG-hWn3rcBSMgpG411qMDms8BUzVtZQWsERIUM7Iz60Eb-QtWjIfAq8");'>
+                        <div class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-90 shadow-[0_2px_8px_rgba(0,0,0,0.16)]">
+                            <span class="material-symbols-outlined text-xl text-amber-500">deck</span>
+                        </div>
+                    </div>
+                    <div class="relative p-4">
+                        <h3 class="font-serif text-lg font-semibold leading-tight text-[#212121] dark:text-white">Ganesha's Sweet Tooth</h3>
+                        <p class="mt-2 text-xs text-[#757575] dark:text-gray-400">Ganesha • Puranas • 5 min read</p>
+                        <div class="absolute bottom-4 left-4 h-1 w-12 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 shadow-[0_1px_3px_rgba(0,0,0,0.1)]"></div>
+                    </div>
+                </div>
+                <div class="w-60 shrink-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.08)] dark:bg-gray-800">
+                    <div class="relative h-[180px] bg-cover bg-center" data-alt="A serene painting of Shiva meditating in the Himalayas" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDir1rPX9SRVuoFll6kd__-eO92MQK8-yb_Dwdu996BprgXqGT7OV0LUsAStZ6E3d9P8NL3mzn5NXXnrx0FM9_3G8nXu-3ujCVu7qttzHJAk_bhxIpoyGk71q3V59O_AC_-6qrc_--uDczeOs7UVdAJQJtaxR6-gk3DCQ0404zMlJ6EYy39lnJ9Lv2H9m5BORD-oiLJdW9BK-RGVizT0Qrl50qDVMsuNSDn2j6zmbc5SugBTxkdnRYrlIn0CQtrBxju-_tb28z0QtQ");'>
+                        <div class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-90 shadow-[0_2px_8px_rgba(0,0,0,0.16)]">
+                            <span class="material-symbols-outlined text-xl text-indigo-600">neurology</span>
+                        </div>
+                    </div>
+                    <div class="relative p-4">
+                        <h3 class="font-serif text-lg font-semibold leading-tight text-[#212121] dark:text-white">Shiva's Cosmic Dance</h3>
+                        <p class="mt-2 text-xs text-[#757575] dark:text-gray-400">Shiva • Vedas • 8 min read</p>
+                        <div class="absolute bottom-4 left-4 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 shadow-[0_1px_3px_rgba(0,0,0,0.1)]"></div>
+                    </div>
+                </div>
+                <div class="w-60 shrink-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.08)] dark:bg-gray-800">
+                    <div class="relative h-[180px] bg-cover bg-center" data-alt="An artistic depiction of Vishnu's Matsya avatar" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_vIO9FGoA-5ebQx3uU72ADIlfkqmFdq4wPz8RNZmFFCJzZ07fdrOSNMRmsoB2thLkYRzXPTGLC4vZ7gIbw0AG4L2Nnw-ITvgEPw6Os1ozOAWAphaASlfYMZjnKFAyTtPpx_uUKaOxhPZO2PcZq6tR2taQdMxU4Lwlj-jWFNTexmzrJbxiWXv_t3bRCxU1okjvEkdpN4e5HUnhMmSmw8W1Cy3Q6MBlvodxQngQL-vcf2jX3Ha3C0H3GyvgwLB9Zx8KJNNF02saSbs");'>
+                        <div class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-90 shadow-[0_2px_8px_rgba(0,0,0,0.16)]">
+                            <span class="material-symbols-outlined text-xl text-blue-500">phishing</span>
+                        </div>
+                    </div>
+                    <div class="relative p-4">
+                        <h3 class="font-serif text-lg font-semibold leading-tight text-[#212121] dark:text-white">Vishnu and the Great Flood</h3>
+                        <p class="mt-2 text-xs text-[#757575] dark:text-gray-400">Vishnu • Upanishads • 6 min</p>
+                        <div class="absolute bottom-4 left-4 h-1 w-12 rounded-full bg-gradient-to-r from-sky-400 to-blue-600 shadow-[0_1px_3px_rgba(0,0,0,0.1)]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Trending Stories Section -->
+        <div class="mt-9 px-4">
+            <div class="px-1">
+                <div class="flex items-center gap-2">
+                    <h2 class="font-serif text-2xl font-bold text-[#212121] dark:text-white">Trending Stories</h2>
+                    <span class="material-symbols-outlined text-2xl text-[#FF5722]">local_fire_department</span>
+                </div>
+                <p class="mt-1 text-sm text-[#757575] opacity-70 dark:text-gray-400">Most read this week</p>
+            </div>
+            <div class="mt-5 flex flex-col gap-4">
+                <div class="flex h-28 w-full items-center rounded-lg bg-white p-4 shadow-[0_2px_10px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.04)] dark:bg-gray-800">
+                    <img class="h-20 w-20 shrink-0 rounded-lg object-cover" data-alt="A silhouette against a cosmic galaxy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE0VBQ4dA4XlD6O_EjW45-BN2yzIokUjLJaur97s4K58jcpBcq2W-OU-oXQti_ID0vmJzkAeZXdGP51r8qE9A_dtn7vPTSQSZDdol0hpUK0a3iy4caAXNd_nCSfEmSdKDVCC1oMdvX_hUltRloJoyBv2PpdXeq48W8KEveVcI_eQ5WAERiamNOi2NmJ80t4se7hE8erlBqjHySOSAceCJx6rCHLYOW2RONzVJC1YkFLBaZZXX5aCXL0zFwCoCJTGr6apFNqxnzw1c"/>
+                    <div class="ml-4 flex-1">
+                        <h3 class="font-display text-base font-bold leading-tight text-[#212121] dark:text-white">The Birth of the Cosmos</h3>
+                        <p class="mt-1.5 text-xs text-[#757575] dark:text-gray-400">Creation • Vedas</p>
+                        <p class="mt-2.5 text-xs font-semibold text-[#FF9933]">12k reads</p>
+                    </div>
+                    <span class="material-symbols-outlined text-2xl text-[#9E9E9E] dark:text-gray-500">bookmark_add</span>
+                </div>
+                <div class="flex h-28 w-full items-center rounded-lg bg-white p-4 shadow-[0_2px_10px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.04)] dark:bg-gray-800">
+                    <img class="h-20 w-20 shrink-0 rounded-lg object-cover" data-alt="A dramatic scene of a battlefield from the Mahabharata" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5e6lFLjN9rVPPQ2-ZbZCpjWuN2yujs4p9GFMt2PRdOZoYUrz_RboKclzc0BoRfxc2MMUuq4PMzaTQY0YIfvWto1ZOj_Rc5yv0vxSxzS8sHnu6CBSGQYIdILXfts6f0Gnoq6JLtAjyDGhpSIJk59zlN9S2yBaRLo0m1nLCpIIDbUA27QQXY_ooEfHYDVxdU0NKG1boNdrhMak7fw0ZeYgCWRMFuyXK8pPubRaXWXu-h-Dz-IkeNsG400jB8cgJnuxFtie3k_VsKDk"/>
+                    <div class="ml-4 flex-1">
+                        <h3 class="font-display text-base font-bold leading-tight text-[#212121] dark:text-white">Arjuna's Dilemma</h3>
+                        <p class="mt-1.5 text-xs text-[#757575] dark:text-gray-400">Mahabharata • Gita</p>
+                        <p class="mt-2.5 text-xs font-semibold text-[#FF9933]">9.8k reads</p>
+                    </div>
+                    <span class="material-symbols-outlined text-2xl text-[#FF9933]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+                </div>
+                <div class="flex h-28 w-full items-center rounded-lg bg-white p-4 shadow-[0_2px_10px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.04)] dark:bg-gray-800">
+                    <img class="h-20 w-20 shrink-0 rounded-lg object-cover" data-alt="An illustration of Ravana with ten heads" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSHuMmpQQ_qossGq7hUudU3yvtmMCAv-lXsJBkTAy4Uq6bCO_oOXCFgY_JMSz9htihaUwDXzYns-vCiw3FXRze-RC4FbuxZJM9vR5j8KRL-0CDklCj7ZiB21NVXJ5uVZ1yGqFPcnoeLgjRev4ggKZP7dPRA8nJm4q3C9tKUK3JlLSKbQhIPZ6ywUt3_0xkTL0ZPlO5BmYPwEcAG-Z-GCB0aDM1zYq6VJEPrtMsXRwECs8FI-ibFMZFUZfZImqkMMWfAg2JPNjHo5o"/>
+                    <div class="ml-4 flex-1">
+                        <h3 class="font-display text-base font-bold leading-tight text-[#212121] dark:text-white">The Abduction of Sita</h3>
+                        <p class="mt-1.5 text-xs text-[#757575] dark:text-gray-400">Ramayana • Epic</p>
+                        <p class="mt-2.5 text-xs font-semibold text-[#FF9933]">8.1k reads</p>
+                    </div>
+                    <span class="material-symbols-outlined text-2xl text-[#9E9E9E] dark:text-gray-500">bookmark_add</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 z-10 mx-auto h-[88px] w-full max-w-[393px] border-t border-t-[rgba(0,0,0,0.06)] bg-white/95 pb-4 dark:border-t-gray-700 dark:bg-gray-900/95" style="backdrop-filter: blur(20px);">
+        <div class="flex h-full items-center justify-around">
+            <a class="flex flex-col items-center gap-1.5 text-center text-[#FF9933]" href="#">
+                <div class="relative w-8">
+                    <div class="absolute -top-1.5 left-1/2 h-1 w-8 -translate-x-1/2 rounded-full bg-[#FF9933] shadow-[0_1px_3px_rgba(255,153,51,0.3)]"></div>
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                </div>
+                <span class="text-xs font-medium tracking-wide">Today</span>
+            </a>
+            <a class="flex flex-col items-center gap-1.5 text-center text-[#9E9E9E] opacity-70" href="#">
+                <span class="material-symbols-outlined text-3xl">grid_view</span>
+                <span class="text-xs font-medium tracking-wide">Library</span>
+            </a>
+            <a class="flex flex-col items-center gap-1.5 text-center text-[#9E9E9E] opacity-70" href="#">
+                <span class="material-symbols-outlined text-3xl">person</span>
+                <span class="text-xs font-medium tracking-wide">Profile</span>
+            </a>
+        </div>
+    </nav>
+</div>
+</body></html>

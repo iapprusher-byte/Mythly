@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mythly - Ancient wisdom, daily</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ff9933",
+                "background-light": "#f8f7f5",
+                "background-dark": "#23190f",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"],
+                "serif": ["Playfair Display", "serif"]
+              },
+              borderRadius: {
+                "DEFAULT": "0.5rem",
+                "lg": "1rem",
+                "xl": "1.5rem",
+                "full": "9999px"
+              },
+            },
+          },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .font-display {
+            font-family: 'Inter', sans-serif;
+          }
+          .font-serif {
+            font-family: 'Playfair Display', serif;
+          }
+        }
+    </style>
+    <style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-screen w-full flex-col group/design-root overflow-hidden bg-gradient-to-b from-[#FFF8F0] to-white dark:from-[#3a2c1d] dark:to-background-dark">
+    <div class="flex flex-1 flex-col items-center justify-center p-4">
+        <div class="flex flex-col items-center text-center">
+            <!-- Spacer to push content from top -->
+            <div class="pt-[120px]"></div>
+            <!-- Lotus Illustration -->
+            <svg class="h-28 w-28 text-primary" data-alt="Minimalist line art of a lotus flower" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24">
+                <path d="M12 2a5 5 0 0 0-5 5c0 3.866 2.5 7 5 7s5-3.134 5-7a5 5 0 0 0-5-5z"></path>
+                <path d="M22 14c-1.667 2-5 3-10 3s-8.333-1-10-3"></path>
+                <path d="M2 18c2 2.667 6 4 10 4s8-1.333 10-4"></path>
+            </svg>
+            <!-- App Name -->
+            <h1 class="text-[#333333] dark:text-background-light tracking-light text-[32px] font-bold leading-tight font-serif pt-6">Mythly</h1>
+            <!-- Tagline -->
+            <p class="text-[#757575] dark:text-gray-400 text-base font-normal leading-normal pt-3">Ancient wisdom, daily</p>
+        </div>
+        <!-- Loading Spinner -->
+        <div class="absolute bottom-12 flex items-center justify-center">
+            <div class="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>
+        </div>
+    </div>
+</div>
+</body></html>

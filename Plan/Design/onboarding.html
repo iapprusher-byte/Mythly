@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mythly - Onboarding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+        .font-playfair-display {
+          font-family: 'Playfair Display', serif;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ff9933",
+                "background-light": "#f8f7f5",
+                "background-dark": "#23190f",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+    <style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <main class="flex w-full grow flex-col">
+        <div class="flex flex-col h-full grow">
+            <div class="flex w-full grow bg-white @container py-0 px-0">
+                <div class="flex w-full flex-col items-center">
+                    <div class="relative flex-1 w-full aspect-square max-h-[50vh] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-5" data-alt="Abstract mandala background pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATDcmuuuJMgvZUQPSXIJZInv2kc8KL5D9rrm2q0W03m9PlnDru1YDiiiioQxWKIave3STYlcSARLIbr80paSBENrSTR01GR05PFRm-FgKF2j7cu2v8j2uuHzIaA_ehkJdaSAB5KyFU7Z0gbkLRHWS-lSeMqAzS5Fq0KAn9c9cviza371e97FkZcyW9zCKA2YPl_yi7YSWiyKqxgKTRf_Nsw6-Y_FkH9Km_A5SIIOw4tDcMrjrvb_YaHSLA97zZ2ybD3zZy7mXgE6c");'></div>
+                        <div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Modern illustration of Krishna playing a flute, surrounded by animals." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJMvxAAt75UkNY1TAr2dlqLrdm7qFZvUO9HxoWkY_7-os4JCLd4p9MIzUK8JZEpn1BQmHoPYd5WHPBvpNkCOabPxAG6-mholul8dq0OBaZadiwNMSNvBUYoDJGgBL191YWmBM-qq9vnG5yh_tu_78u9-DHsk5Z7Cdt_DH_606-6JIPUfBolsry8IVMRNMIIm2cguf41CVMA_VlQZLSxGB2ZwNB10sba-PKj0e9nVN40mNOAAdiSiiQRFvKwVUYaZcPigo7_JsEoqw");'></div>
+                    </div>
+                    <div class="flex flex-col w-full px-6 pb-6 mt-8">
+                        <h1 class="text-[#333333] tracking-normal text-3xl font-bold leading-tight text-center font-playfair-display">Ancient Stories, Modern You</h1>
+                        <p class="text-[#808080] text-base font-normal leading-normal pt-4 px-4 text-center mx-auto max-w-[60%]">
+                            Discover timeless wisdom from Hindu mythology, one story at a time. Just 5 minutes a day.
+                        </p>
+                        <div class="flex w-full flex-row items-center justify-center gap-2 py-8 mt-8">
+                            <div class="h-2 w-2 rounded-full bg-[#F7A072]"></div>
+                            <div class="h-2 w-2 rounded-full border border-gray-300"></div>
+                            <div class="h-2 w-2 rounded-full border border-gray-300"></div>
+                        </div>
+                        <div class="flex px-0 pt-6">
+                            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 flex-1 bg-[#F7A072] text-white text-base font-bold leading-normal tracking-[0.015em]">
+                                <span class="truncate">Continue</span>
+                            </button>
+                        </div>
+                        <div class="flex px-4 pt-4">
+                            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-12 px-5 flex-1 bg-transparent text-[#192A51] text-base font-medium leading-normal">
+                                <span class="truncate">Skip</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body></html>
