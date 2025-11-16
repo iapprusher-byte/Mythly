@@ -14,7 +14,7 @@ interface StoryDao {
     @Query("SELECT * FROM stories WHERE id = :id")
     suspend fun getStoryById(id: String): StoryEntity?
 
-    @Query("SELECT * FROM stories WHERE deity = :deity ORDER BY datePublished DESC")
+    @Query("SELECT * FROM stories WHERE deities LIKE '%' || :deity || '%' ORDER BY datePublished DESC")
     fun getStoriesByDeity(deity: Deity): Flow<List<StoryEntity>>
 
     @Query("SELECT * FROM stories WHERE epic = :epic ORDER BY datePublished DESC")

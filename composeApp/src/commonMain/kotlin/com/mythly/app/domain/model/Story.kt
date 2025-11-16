@@ -8,15 +8,13 @@ data class Story(
     val title: String,
     val content: String,
     val moralLesson: String,
-    val deity: Deity,
+    val deities: List<Deity>,
     val epic: Epic,
     val values: List<Value>,
     val imageUrl: String,
     val readTimeMinutes: Int,
     val datePublished: Long,
-    val audioUrl: String? = null,
-    val sanskritTitle: String? = null,
-    val relatedStoryIds: List<String> = emptyList()
+    val audioUrl: String? = null
 )
 
 // UI-specific wrapper

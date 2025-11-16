@@ -119,16 +119,6 @@ private fun StoryContent(
                 color = MaterialTheme.colorScheme.onBackground
             )
 
-            // Sanskrit title if available
-            story.story.sanskritTitle?.let { sanskritTitle ->
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = sanskritTitle,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-
             Spacer(modifier = Modifier.height(16.dp))
 
             // Metadata chips
@@ -136,13 +126,16 @@ private fun StoryContent(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
+                // Display deity chips (all deities)
+                story.story.deities.forEach { deity ->
+                    AssistChip(
+                        onClick = { },
+                        label = { Text(deity.displayName) }
+                    )
+                }
                 AssistChip(
                     onClick = { },
-                    label = { Text(story.story.deity.name) }
-                )
-                AssistChip(
-                    onClick = { },
-                    label = { Text(story.story.epic.name) }
+                    label = { Text(story.story.epic.displayName) }
                 )
                 AssistChip(
                     onClick = { },

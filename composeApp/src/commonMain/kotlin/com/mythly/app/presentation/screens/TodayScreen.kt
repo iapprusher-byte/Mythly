@@ -125,10 +125,9 @@ fun TodayContentPreview() {
                         story = Story(
                             id = "1",
                             title = "The Legend of Lord Rama",
-                            sanskritTitle = "रामायणम्",
                             content = "The epic tale of Lord Rama, the seventh avatar of Vishnu...",
                             moralLesson = "Righteousness and dharma always triumph",
-                            deity = Deity.RAMA,
+                            deities = listOf(Deity.RAMA),
                             epic = Epic.RAMAYANA,
                             readTimeMinutes = 12,
                             datePublished = System.currentTimeMillis(),

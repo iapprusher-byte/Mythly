@@ -94,35 +94,36 @@ fun StoryCard(
                     overflow = TextOverflow.Ellipsis
                 )
 
-                // Sanskrit title if available
-                story.story.sanskritTitle?.let { sanskritTitle ->
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = sanskritTitle,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
-
                 Spacer(modifier = Modifier.height(8.dp))
 
                 // Metadata Row
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    // Deity badge
-                    SuggestionChip(
-                        onClick = { },
-                        label = {
-                            Text(
-                                text = story.story.deity.name,
-                                style = MaterialTheme.typography.labelSmall
-                            )
-                        }
-                    )
+                    // Deity badges (display all deities)
+                    story.story.deities.take(2).forEach { deity ->
+                        SuggestionChip(
+                            onClick = { },
+                            label = {
+                                Text(
+                                    text = deity.displayName,
+                                    style = MaterialTheme.typography.labelSmall
+                                )
+                            }
+                        )
+                    }
+
+                    // Show "+N more" if there are additional deities
+                    if (story.story.deities.size > 2) {
+                        Text(
+                            text = "+${story.story.deities.size - 2}",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
 
                     // Read time
                     Row(
@@ -156,10 +157,9 @@ fun StoryCardPreview() {
                 story = Story(
                     id = "1",
                     title = "The Tale of Lord Vishnu",
-                    sanskritTitle = "विष्णु कथा",
                     content = "A powerful story about the preserver of the universe...",
                     moralLesson = "Preserve and protect the good in the world",
-                    deity = Deity.VISHNU,
+                    deities = listOf(Deity.VISHNU),
                     epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 8,
                     datePublished = System.currentTimeMillis(),
@@ -186,10 +186,9 @@ fun StoryCardReadPreview() {
                 story = Story(
                     id = "2",
                     title = "Krishna and the Butter",
-                    sanskritTitle = "कृष्ण माखन चोर",
                     content = "The mischievous adventures of young Krishna...",
                     moralLesson = "Joy and innocence are divine qualities",
-                    deity = Deity.KRISHNA,
+                    deities = listOf(Deity.KRISHNA),
                     epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 5,
                     datePublished = System.currentTimeMillis(),
