@@ -1,6 +1,7 @@
 package com.mythly.app
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -37,6 +38,7 @@ private fun MythlyApp() {
         Screen.Today.route,
         Screen.Library.route,
         Screen.Profile.route -> true
+
         else -> false
     }
 
@@ -66,7 +68,7 @@ private fun MythlyApp() {
         }
     ) { paddingValues ->
         Surface(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().padding(paddingValues),
             color = MaterialTheme.colorScheme.background
         ) {
             // Apply padding only to the NavGraph content, not the entire scaffold

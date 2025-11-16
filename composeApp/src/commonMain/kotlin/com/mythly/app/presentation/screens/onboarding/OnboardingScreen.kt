@@ -70,15 +70,23 @@ fun OnboardingScreen(
     ) {
         when (pages[currentPage]) {
             is OnboardingPage.First -> FirstOnboardingPage(
+                imageUrl = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80&auto=format&fit=crop",
+                title = "Ancient Stories, Modern You",
+                description = "Discover timeless wisdom from Hindu mythology, one story at a time. Just 5 minutes a day.",
                 onContinue = { currentPage = 1 },
                 onSkip = onSkip,
                 currentPage = 0
             )
-            is OnboardingPage.Second -> SecondOnboardingPage(
+
+            is OnboardingPage.Second -> FirstOnboardingPage(
+                imageUrl = "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=927&auto=format&fit=crop",
+                title = "Your Daily Dose of Dharma",
+                description = "Get a new mythology story delivered every morning. Build wisdom like you build habits.",
                 onContinue = { currentPage = 2 },
                 onSkip = onSkip,
                 currentPage = 1
             )
+
             is OnboardingPage.Third -> ThirdOnboardingPage(
                 onComplete = onComplete,
                 currentPage = 2
@@ -92,6 +100,9 @@ fun OnboardingScreen(
  */
 @Composable
 private fun FirstOnboardingPage(
+    imageUrl: String,
+    title: String,
+    description: String,
     onContinue: () -> Unit,
     onSkip: () -> Unit,
     currentPage: Int
@@ -106,12 +117,12 @@ private fun FirstOnboardingPage(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp)
+                .fillMaxHeight(0.35f)
                 .background(Color(0xFFFFF8F0)),
             contentAlignment = Alignment.Center
         ) {
             AsyncImage(
-                model = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80&auto=format&fit=crop",
+                model = imageUrl,
                 contentDescription = "Krishna",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
@@ -125,17 +136,16 @@ private fun FirstOnboardingPage(
                 .weight(1f)
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 // Heading
                 Text(
-                    text = "Ancient Stories, Modern You",
-                    fontSize = 28.sp,
+                    text = title,
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF333333),
                     textAlign = TextAlign.Center,
@@ -146,7 +156,7 @@ private fun FirstOnboardingPage(
 
                 // Description
                 Text(
-                    text = "Discover timeless wisdom from Hindu mythology, one story at a time. Just 5 minutes a day.",
+                    text = description,
                     fontSize = 16.sp,
                     color = Color(0xFF808080),
                     textAlign = TextAlign.Center,
@@ -162,6 +172,8 @@ private fun FirstOnboardingPage(
                 )
             }
 
+            Spacer(Modifier.weight(1f))
+
             // Bottom Buttons
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -170,8 +182,8 @@ private fun FirstOnboardingPage(
                 Button(
                     onClick = onContinue,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp),
+                        .fillMaxWidth(0.7f)
+                        .height(42.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFF9933)
                     ),
@@ -189,122 +201,8 @@ private fun FirstOnboardingPage(
                 // Skip Button
                 TextButton(
                     onClick = onSkip,
-                    modifier = Modifier.height(48.dp)
-                ) {
-                    Text(
-                        text = "Skip",
-                        fontSize = 16.sp,
-                        color = Color(0xFF808080)
-                    )
-                }
-            }
-        }
-    }
-}
-
-/**
- * Second Onboarding Page - "Your Daily Dose of Dharma"
- */
-@Composable
-private fun SecondOnboardingPage(
-    onContinue: () -> Unit,
-    onSkip: () -> Unit,
-    currentPage: Int
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // Image Section (fixed 300dp height)
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(300.dp)
-                .background(Color(0xFFFFF8F0)),
-            contentAlignment = Alignment.Center
-        ) {
-            AsyncImage(
-                model = "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=927&auto=format&fit=crop",
-                contentDescription = "Hanuman",
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-        }
-
-        // Content Section
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // Heading
-                Text(
-                    text = "Your Daily Dose of Dharma",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF333333),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 34.sp
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Description
-                Text(
-                    text = "Get a new mythology story delivered every morning. Build wisdom like you build habits.",
-                    fontSize = 16.sp,
-                    color = Color(0xFF808080),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 24.sp
-                )
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                // Page Indicators
-                PageIndicators(
-                    pageCount = 3,
-                    currentPage = currentPage
-                )
-            }
-
-            // Bottom Buttons
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                // Continue Button
-                Button(
-                    onClick = onContinue,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFFF9933)
-                    ),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Text(
-                        text = "Continue",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Skip Button
-                TextButton(
-                    onClick = onSkip,
-                    modifier = Modifier.height(48.dp)
+                    modifier = Modifier.fillMaxWidth(0.7f)
+                        .height(42.dp),
                 ) {
                     Text(
                         text = "Skip",
@@ -327,12 +225,36 @@ private fun ThirdOnboardingPage(
 ) {
     val deities = remember {
         listOf(
-            DeityInfo("Ganesha", "🐘", "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=400&q=80&auto=format&fit=crop"),
-            DeityInfo("Krishna", "🪈", "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80&auto=format&fit=crop"),
-            DeityInfo("Shiva", "🔱", "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=400&q=80&auto=format&fit=crop"),
-            DeityInfo("Rama", "🏹", "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=400&q=80&auto=format&fit=crop"),
-            DeityInfo("Hanuman", "⛰️", "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=400&auto=format&fit=crop"),
-            DeityInfo("Durga", "⚔️", "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=400&q=80&auto=format&fit=crop")
+            DeityInfo(
+                "Ganesha",
+                "🐘",
+                "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=400&q=80&auto=format&fit=crop"
+            ),
+            DeityInfo(
+                "Krishna",
+                "🪈",
+                "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80&auto=format&fit=crop"
+            ),
+            DeityInfo(
+                "Shiva",
+                "🔱",
+                "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=400&q=80&auto=format&fit=crop"
+            ),
+            DeityInfo(
+                "Rama",
+                "🏹",
+                "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=400&q=80&auto=format&fit=crop"
+            ),
+            DeityInfo(
+                "Hanuman",
+                "⛰️",
+                "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=400&auto=format&fit=crop"
+            ),
+            DeityInfo(
+                "Durga",
+                "⚔️",
+                "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=400&q=80&auto=format&fit=crop"
+            )
         )
     }
 
@@ -347,7 +269,7 @@ private fun ThirdOnboardingPage(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp)
+                .fillMaxHeight(0.35f)
                 .background(Color(0xFFFFF8F0)),
             contentAlignment = Alignment.Center
         ) {
