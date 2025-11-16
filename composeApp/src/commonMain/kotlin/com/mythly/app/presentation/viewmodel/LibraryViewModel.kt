@@ -134,7 +134,7 @@ class LibraryViewModel(
 
         return when (filter) {
             is LibraryFilter.All -> stories
-            is LibraryFilter.ByDeity -> stories.filter { it.story.deity == filter.deity }
+            is LibraryFilter.ByDeity -> stories.filter { filter.deity in it.story.deities }
             is LibraryFilter.ByEpic -> stories.filter { it.story.epic == filter.epic }
             is LibraryFilter.Read -> stories.filter { it.isRead }
             is LibraryFilter.Favorites -> stories.filter { it.isFavorite }
