@@ -55,10 +55,14 @@ kotlin {
             implementation(libs.coil.network)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.datetime)
             implementation(libs.room.runtime)
             implementation(libs.supabase.postgrest)
             implementation(libs.supabase.storage)
             implementation(libs.ktor.client.core)
+            implementation(libs.composeIcons.feather)
+            implementation(libs.composeIcons.fontAwesome)
+            implementation(libs.kermit)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

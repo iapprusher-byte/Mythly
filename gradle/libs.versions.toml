@@ -17,11 +17,14 @@ room = "2.7.0-alpha12"
 coil = "3.0.4"
 kotlinx-coroutines = "1.9.0"
 kotlinx-serialization = "1.7.3"
+kotlinx-datetime = "0.6.1"
 supabase = "3.0.2"
 ktor = "3.0.2"
 datastore = "1.1.1"
 ksp = "2.1.0-1.0.29"
 navigation = "2.8.0-alpha10"
+composeIcons = "1.1.1"
+kermit = "2.0.4"
 
 [libraries]
 # Testing
@@ -62,6 +65,9 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 # Serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
+# DateTime
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
 # Supabase
 supabase-postgrest = { module = "io.github.jan-tennert.supabase:postgrest-kt", version.ref = "supabase" }
 supabase-storage = { module = "io.github.jan-tennert.supabase:storage-kt", version.ref = "supabase" }
@@ -76,6 +82,13 @@ datastore-preferences = { module = "androidx.datastore:datastore-preferences", v
 
 # Navigation
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+# Compose Icons
+composeIcons-feather = { module = "br.com.devsrsouza.compose.icons:feather", version.ref = "composeIcons" }
+composeIcons-fontAwesome = { module = "br.com.devsrsouza.compose.icons:font-awesome", version.ref = "composeIcons" }
+
+# Kermit Logging
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

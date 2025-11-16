@@ -10,5 +10,6 @@ enum class Value(val displayName: String, val emoji: String) {
     DUTY("Duty", "🎯"),
     HUMILITY("Humility", "🙇"),
     PERSEVERANCE("Perseverance", "🔥"),
-    LOYALTY("Loyalty", "🤝")
+    LOYALTY("Loyalty", "🤝"),
+    PATIENCE("Patience", "⏳")
 }

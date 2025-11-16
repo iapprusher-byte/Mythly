@@ -1,5 +1,6 @@
 package com.mythly.app.data.repository
 
+import co.touchlab.kermit.Logger
 import com.mythly.app.data.local.dao.StoryDao
 import com.mythly.app.data.local.entity.StoryEntity
 import com.mythly.app.domain.model.*
@@ -7,6 +8,7 @@ import com.mythly.app.domain.repository.StoryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.datetime.Clock
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -14,6 +16,8 @@ class StoryRepositoryImpl(
     private val storyDao: StoryDao,
     private val jsonContent: String
 ) : StoryRepository {
+
+    private val logger = Logger.withTag("StoryRepository")
 
     override fun getAllStories(): Flow<List<StoryUiState>> =
         storyDao.getAllStories().map { entities ->
@@ -55,7 +59,7 @@ class StoryRepositoryImpl(
     }
 
     override suspend fun markAsRead(storyId: String) {
-        val timestamp = System.currentTimeMillis()
+        val timestamp = Clock.System.now().toEpochMilliseconds()
         storyDao.markAsRead(storyId, true, timestamp)
     }
 
@@ -65,15 +69,19 @@ class StoryRepositoryImpl(
 
     override suspend fun loadInitialContent(): Result<Unit> {
         return try {
+            logger.d { "Loading initial content..." }
+
             // Check if already loaded
             val existingStories = storyDao.getAllStories().first()
             if (existingStories.isNotEmpty()) {
+                logger.i { "Stories already loaded. Count: ${existingStories.size}" }
                 return Result.success(Unit)
             }
 
             // Parse JSON
             val json = Json { ignoreUnknownKeys = true }
             val storiesData = json.decodeFromString<StoriesContainer>(jsonContent)
+            logger.i { "Parsed ${storiesData.stories.size} stories from JSON" }
 
             // Convert to entities
             val entities = storiesData.stories.map { dto ->
@@ -96,9 +104,11 @@ class StoryRepositoryImpl(
 
             // Insert into database
             storyDao.insertStories(entities)
+            logger.i { "Successfully loaded ${entities.size} stories into database" }
 
             Result.success(Unit)
         } catch (e: Exception) {
+            logger.e(throwable = e) { "Failed to load initial content: ${e.message}" }
             Result.failure(e)
         }
     }
