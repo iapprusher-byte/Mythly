@@ -1,6 +1,9 @@
 package com.mythly.app.presentation.screens.onboarding
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,9 +16,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -28,10 +38,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 
 /**
  * Onboarding Screen with pager for multiple onboarding pages
@@ -90,99 +102,101 @@ private fun FirstOnboardingPage(
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Image Section (50% of screen)
+        // Image Section (fixed 300dp height)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.5f),
+                .height(300.dp)
+                .background(Color(0xFFFFF8F0)),
             contentAlignment = Alignment.Center
         ) {
-            // TODO: Add actual image from resources
-            // For now, placeholder with background color
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(0xFFFFF8F0)),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "🎵",  // Krishna playing flute placeholder
-                    fontSize = 120.sp
-                )
-            }
+            AsyncImage(
+                model = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80&auto=format&fit=crop",
+                contentDescription = "Krishna",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
         }
 
         // Content Section
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .weight(1f)
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Heading
-            Text(
-                text = "Ancient Stories, Modern You",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF333333),
-                textAlign = TextAlign.Center,
-                lineHeight = 36.sp
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Description
-            Text(
-                text = "Discover timeless wisdom from Hindu mythology, one story at a time. Just 5 minutes a day.",
-                fontSize = 16.sp,
-                color = Color(0xFF808080),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 32.dp),
-                lineHeight = 24.sp
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Page Indicators
-            PageIndicators(
-                pageCount = 3,
-                currentPage = currentPage
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Continue Button
-            Button(
-                onClick = onContinue,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFF7A072)
-                ),
-                shape = MaterialTheme.shapes.large
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.height(24.dp))
+
+                // Heading
                 Text(
-                    text = "Continue",
+                    text = "Ancient Stories, Modern You",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF333333),
+                    textAlign = TextAlign.Center,
+                    lineHeight = 34.sp
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Description
+                Text(
+                    text = "Discover timeless wisdom from Hindu mythology, one story at a time. Just 5 minutes a day.",
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    color = Color(0xFF808080),
+                    textAlign = TextAlign.Center,
+                    lineHeight = 24.sp
+                )
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                // Page Indicators
+                PageIndicators(
+                    pageCount = 3,
+                    currentPage = currentPage
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Skip Button
-            TextButton(
-                onClick = onSkip,
-                modifier = Modifier.height(48.dp)
+            // Bottom Buttons
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = "Skip",
-                    fontSize = 16.sp,
-                    color = Color(0xFF192A51)
-                )
+                // Continue Button
+                Button(
+                    onClick = onContinue,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFFF9933)
+                    ),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = "Continue",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Skip Button
+                TextButton(
+                    onClick = onSkip,
+                    modifier = Modifier.height(48.dp)
+                ) {
+                    Text(
+                        text = "Skip",
+                        fontSize = 16.sp,
+                        color = Color(0xFF808080)
+                    )
+                }
             }
         }
     }
@@ -200,102 +214,104 @@ private fun SecondOnboardingPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF8F7F5)),
+            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.weight(1f))
-
-        // Image Section
+        // Image Section (fixed 300dp height)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(1f)
-                .padding(16.dp),
+                .height(300.dp)
+                .background(Color(0xFFFFF8F0)),
             contentAlignment = Alignment.Center
         ) {
-            // TODO: Add Hanuman carrying mountain image
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(0xFFE8E4DD)),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "⛰️",  // Mountain placeholder
-                    fontSize = 120.sp
-                )
-            }
+            AsyncImage(
+                model = "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=927&auto=format&fit=crop",
+                contentDescription = "Hanuman",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
         }
 
         // Content Section
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .weight(1f)
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
-            // Heading
-            Text(
-                text = "Your Daily Dose of Dharma",
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF181410),
-                textAlign = TextAlign.Center,
-                lineHeight = 40.sp
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Description
-            Text(
-                text = "Get a new mythology story delivered every morning. Build wisdom like you build habits.",
-                fontSize = 16.sp,
-                color = Color(0xFF6C757D),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 16.dp),
-                lineHeight = 24.sp
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Page Indicators
-            PageIndicators(
-                pageCount = 3,
-                currentPage = currentPage
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Continue Button
-            Button(
-                onClick = onContinue,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFFF9933)
-                ),
-                shape = MaterialTheme.shapes.medium
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.height(24.dp))
+
+                // Heading
                 Text(
-                    text = "Continue",
+                    text = "Your Daily Dose of Dharma",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF333333),
+                    textAlign = TextAlign.Center,
+                    lineHeight = 34.sp
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Description
+                Text(
+                    text = "Get a new mythology story delivered every morning. Build wisdom like you build habits.",
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    color = Color(0xFF808080),
+                    textAlign = TextAlign.Center,
+                    lineHeight = 24.sp
+                )
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                // Page Indicators
+                PageIndicators(
+                    pageCount = 3,
+                    currentPage = currentPage
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Skip Button
-            TextButton(
-                onClick = onSkip
+            // Bottom Buttons
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = "Skip",
-                    fontSize = 14.sp,
-                    color = Color(0xFF4169E1)
-                )
+                // Continue Button
+                Button(
+                    onClick = onContinue,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFFF9933)
+                    ),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = "Continue",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Skip Button
+                TextButton(
+                    onClick = onSkip,
+                    modifier = Modifier.height(48.dp)
+                ) {
+                    Text(
+                        text = "Skip",
+                        fontSize = 16.sp,
+                        color = Color(0xFF808080)
+                    )
+                }
             }
         }
     }
@@ -309,56 +325,62 @@ private fun ThirdOnboardingPage(
     onComplete: () -> Unit,
     currentPage: Int
 ) {
+    val deities = remember {
+        listOf(
+            DeityInfo("Ganesha", "🐘", "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=400&q=80&auto=format&fit=crop"),
+            DeityInfo("Krishna", "🪈", "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80&auto=format&fit=crop"),
+            DeityInfo("Shiva", "🔱", "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=400&q=80&auto=format&fit=crop"),
+            DeityInfo("Rama", "🏹", "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=400&q=80&auto=format&fit=crop"),
+            DeityInfo("Hanuman", "⛰️", "https://images.unsplash.com/photo-1707833684948-11bd776ffdef?q=80&w=400&auto=format&fit=crop"),
+            DeityInfo("Durga", "⚔️", "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=400&q=80&auto=format&fit=crop")
+        )
+    }
+
+    var selectedDeity by remember { mutableStateOf<DeityInfo?>(null) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF8F7F5))
+            .background(Color.White)
     ) {
-        // Header Image
+        // Header Image (fixed 300dp height)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.4f)
-                .background(Color(0xFFE0E7FF))  // Light indigo background
+                .height(300.dp)
+                .background(Color(0xFFFFF8F0)),
+            contentAlignment = Alignment.Center
         ) {
-            // TODO: Add Ganesha header image
-            Box(
+            AsyncImage(
+                model = "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800&q=80&auto=format&fit=crop",
+                contentDescription = "Ganesha",
                 modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "🐘",  // Ganesha placeholder
-                    fontSize = 120.sp
-                )
-            }
+                contentScale = ContentScale.Crop
+            )
         }
 
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                .weight(1f)
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
             ) {
-                // Page Indicators
-                PageIndicators(
-                    pageCount = 3,
-                    currentPage = currentPage
-                )
-
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Heading
                 Text(
                     text = "Choose Your Path",
-                    fontSize = 36.sp,
+                    fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF181410),
+                    color = Color(0xFF333333),
                     textAlign = TextAlign.Center,
-                    lineHeight = 42.sp
+                    lineHeight = 34.sp
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -367,26 +389,35 @@ private fun ThirdOnboardingPage(
                 Text(
                     text = "Which deity resonates with you?",
                     fontSize = 16.sp,
-                    color = Color(0xFF181410).copy(alpha = 0.7f),
+                    color = Color(0xFF808080),
                     textAlign = TextAlign.Center
                 )
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Deity Grid - placeholder, simplified version
-                Text(
-                    text = "[Deity Selection Grid]",
-                    fontSize = 14.sp,
-                    color = Color.Gray,
-                    modifier = Modifier.padding(vertical = 32.dp)
+                // Page Indicators
+                PageIndicators(
+                    pageCount = 3,
+                    currentPage = currentPage
                 )
 
-                // Time Picker - simplified
-                Text(
-                    text = "⏰ 7:00 AM",
-                    fontSize = 18.sp,
-                    modifier = Modifier.padding(vertical = 16.dp)
-                )
+                Spacer(modifier = Modifier.height(24.dp))
+
+                // Deity Grid
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(3),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    modifier = Modifier.height(200.dp)
+                ) {
+                    items(deities) { deity ->
+                        DeityCard(
+                            deity = deity,
+                            isSelected = selectedDeity == deity,
+                            onClick = { selectedDeity = deity }
+                        )
+                    }
+                }
             }
 
             // Start Journey Button
@@ -398,7 +429,7 @@ private fun ThirdOnboardingPage(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFFF9933)
                 ),
-                shape = CircleShape
+                shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
                     text = "Start My Journey",
@@ -439,6 +470,74 @@ private fun PageIndicators(
         }
     }
 }
+
+/**
+ * Deity Card Component for selection
+ */
+@Composable
+private fun DeityCard(
+    deity: DeityInfo,
+    isSelected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier
+            .aspectRatio(0.85f)
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isSelected) Color(0xFFFFF8F0) else Color.White
+        ),
+        border = BorderStroke(
+            width = if (isSelected) 2.dp else 1.dp,
+            color = if (isSelected) Color(0xFFFF9933) else Color(0xFFE0E0E0)
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = if (isSelected) 4.dp else 1.dp
+        )
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            // Deity Image
+            AsyncImage(
+                model = deity.imageUrl,
+                contentDescription = deity.name,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .clip(RoundedCornerShape(8.dp)),
+                contentScale = ContentScale.Crop
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Deity Name
+            Text(
+                text = deity.name,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = if (isSelected) Color(0xFFFF9933) else Color(0xFF333333),
+                textAlign = TextAlign.Center,
+                maxLines = 1
+            )
+        }
+    }
+}
+
+/**
+ * Data class for deity information
+ */
+private data class DeityInfo(
+    val name: String,
+    val emoji: String,
+    val imageUrl: String
+)
 
 /**
  * Sealed class for onboarding pages
