@@ -13,3 +13,7 @@ enum class Deity(val displayName: String) {
     SARASWATI("Saraswati"),
     OTHER("Other")
 }
+
+fun Deity.toName(): String{
+    return this.displayName.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+}

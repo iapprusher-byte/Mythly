@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mythly - Story Reader</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <style>
+        .font-display-serif { font-family: 'Playfair Display', serif; }
+        .drop-cap::first-letter {
+            color: #F4A261; /* Saffron Primary */
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            padding-right: 8px;
+            margin-top: 4px;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#F4A261", /* Saffron Primary */
+                "charcoal": "#264653",
+                "off-white": "#FEFDFB",
+                "golden-amber": "#E9C46A",
+                "lotus-pink": "#FADADD",
+                "soft-gray": "#F1F3F4",
+                "medium-gray": "#808080",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"],
+                "serif": ["Playfair Display", "serif"]
+              },
+              borderRadius: {"DEFAULT": "0.75rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+    <style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-display bg-off-white text-charcoal">
+<div class="relative w-full max-w-lg mx-auto overflow-x-hidden">
+    <!-- Top App Bar -->
+    <div class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between h-14 p-4 bg-gradient-to-b from-white/95 to-transparent">
+        <button class="flex items-center justify-center w-10 h-10">
+            <span class="material-symbols-outlined text-charcoal">arrow_back</span>
+        </button>
+        <div class="flex items-center space-x-3">
+            <button class="flex items-center justify-center w-10 h-10">
+                <span class="material-symbols-outlined text-charcoal">share</span>
+            </button>
+            <button class="flex items-center justify-center w-10 h-10">
+                <span class="material-symbols-outlined text-charcoal">play_circle</span>
+            </button>
+            <button class="flex items-center justify-center w-10 h-10">
+                <span class="material-symbols-outlined text-charcoal">more_vert</span>
+            </button>
+        </div>
+    </div>
+    <main class="flex flex-col">
+        <!-- Header Image -->
+        <div class="w-full h-80 bg-center bg-no-repeat bg-cover" data-alt="An illustration of a young, divine child Krishna reaching for a pot of butter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUdfCPpNEu21z6dUzhYyHQoHLTLYBSNs47coC5-8TmbBysMzQZY24ZJrK6R_5u_JaH2cjR9yvvd_AAcHfZ0hHO0cR-_BrkpMvd2knW9OQ37LFdqISigfdxHIpIeY1VBRr2KaMbscFBWMNN1xFxb1mL1gz9T4tELhngC0noNfzDpKqCM_9M3UEfnEek3gbyfdSXrxrEBfdAx_o0Plf4c76G6b2TSAl4pK6oGqfETiPT66jx2Y8RhCbzQR9EUu3oA1o5SazFZjkD_NY");'></div>
+        <!-- Content Section -->
+        <div class="bg-off-white px-6 py-8 flex flex-col items-center">
+            <!-- Headline Text -->
+            <h1 class="text-charcoal font-serif text-3xl font-bold leading-tight text-center">Krishna and the Pot of Butter</h1>
+            <!-- Chips/Metadata -->
+            <div class="mt-4 flex flex-wrap justify-center items-center gap-x-2 gap-y-2">
+                <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-soft-gray px-3">
+                    <span class="material-symbols-outlined text-charcoal text-base">person</span>
+                    <p class="text-charcoal text-sm font-medium">Krishna</p>
+                </div>
+                <span class="text-medium-gray/50 text-xl font-light">·</span>
+                <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-soft-gray px-3">
+                    <p class="text-charcoal text-sm font-medium">Bhagavata Purana</p>
+                </div>
+                <span class="text-medium-gray/50 text-xl font-light">·</span>
+                <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-soft-gray px-3">
+                    <span class="material-symbols-outlined text-charcoal text-base">schedule</span>
+                    <p class="text-charcoal text-sm font-medium">5 min read</p>
+                </div>
+            </div>
+            <!-- Body Text -->
+            <div class="mt-8 text-justify space-y-5">
+                <p class="text-charcoal text-[17px] font-normal leading-relaxed drop-cap">
+                    In the heart of Vrindavan, where the cows grazed peacefully and the Yamuna river flowed with a gentle melody, lived a child whose mischief was as boundless as his charm. This was Krishna, the beloved of all. His eyes, dark as the monsoon clouds, held a spark of divinity, and his laughter could make the flowers bloom out of season.
+                </p>
+                <p class="text-charcoal text-[17px] font-normal leading-relaxed">
+                    One afternoon, as the village slept under the warm sun, a divine fragrance of freshly churned butter wafted from his mother Yashoda’s kitchen. Krishna, with his silent, toddling steps, followed the scent. He found a pot, hanging high from the rafters, far from his reach. But for the divine trickster, no challenge was too great. He gathered his friends, the gopis, and with a clever plan, they formed a human pyramid. Standing triumphantly at the top, Krishna reached into the pot, his face lighting up with a victorious smile.
+                </p>
+            </div>
+            <!-- Moral Lesson Box -->
+            <div class="mt-8 w-full rounded-lg p-5 border-l-4 border-primary bg-gradient-to-br from-golden-amber/5 to-lotus-pink/5">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-golden-amber">lightbulb</span>
+                    <p class="text-primary text-sm font-bold uppercase tracking-wide">Moral of the Story</p>
+                </div>
+                <p class="text-charcoal text-base font-normal leading-relaxed mt-3">
+                    Krishna's playful act teaches that divine goals, though they may seem out of reach, can be attained through cleverness, cooperation, and a joyful spirit. It reminds us that devotion is not always solemn; it can be filled with love, laughter, and playful surrender.
+                </p>
+            </div>
+            <!-- Related Stories -->
+            <div class="w-full mt-10">
+                <h3 class="text-charcoal font-serif text-2xl font-bold">More from Krishna</h3>
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <div class="flex flex-col">
+                        <div class="aspect-square w-full bg-cover bg-center rounded-lg" data-alt="A serene depiction of the Govardhan Hill being lifted." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6Q0R3T20oO1uBZpJ_rUKmXclWtwm-ey3DsZamjv8aBSKbydhLe9ZDilrtvmvIo2oU1kJ0GfcP7szHT5B0wgvhW_FTab16lqyRDfJbqrJHkejY5TUW8hITsLk2aOpwjRu8Ah6FuuuoSUEQtzjJtRk4xXa86_Fx111K3VrltRtO34PDrJpDdV2tHNg1sud1fsyy50wekEOs34XiQ8WSZP7MxcQ8XQbOJ99_fwS8CHmCeVBOJ86tFPoRszbR_aRGxdxksa4fZuteY9w")'></div>
+                        <p class="text-charcoal font-bold mt-2">The Lifting of Govardhan</p>
+                        <p class="text-medium-gray text-sm">A tale of faith and protection.</p>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="aspect-square w-full bg-cover bg-center rounded-lg" data-alt="A colorful, abstract image representing the joyous Raas Leela dance." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC-EacaWIUrWxKQS1TVFg0R6HNQWC_FG-jTg7kkNyxhtHCoU_yRC_h7qov4f9q8FKOVQ0pYG4LlF1Q_tPsNxMua5TB3lnsBwdZdqGJyDGMO_7ISAFBpUYTFQld9hMpDQXHh72TfySu8HhdmWMjer-byqFUJIkSZJ4eqGhqF6oTcVXMGFMhutzjxK09RaAbFhgSoES-sn0VfFfwYWrvwTIO6BT7OsQCKXehPCb0QXr0GhCwrRWy3t5bMHG0SZ45cT0n3W4f92DG9KE")'></div>
+                        <p class="text-charcoal font-bold mt-2">The Divine Raas Leela</p>
+                        <p class="text-medium-gray text-sm">The celestial dance of love.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Actions -->
+            <div class="w-full mt-10 flex flex-col items-center">
+                <button class="h-12 w-full rounded-full border border-primary text-primary text-base font-bold">Share This Story</button>
+                <p class="text-medium-gray text-xs text-center mt-6">Story by Mythly • Illustration by Artist Name</p>
+            </div>
+        </div>
+    </main>
+    <!-- Floating Audio Player -->
+    <div class="sticky bottom-4 mx-4 z-20">
+        <div class="flex h-[72px] items-center rounded-lg bg-white p-4 shadow-xl">
+            <button class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white">
+                <span class="material-symbols-outlined">pause</span>
+            </button>
+            <div class="mx-4 flex-grow">
+                <div class="h-1 w-full rounded-full bg-soft-gray">
+                    <div class="h-1 w-1/2 rounded-full bg-primary"></div>
+                </div>
+            </div>
+            <button class="flex h-10 w-10 flex-shrink-0 items-center justify-center text-medium-gray">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+    </div>
+</div>
+</body></html>

@@ -16,6 +16,7 @@ import com.mythly.app.domain.model.Epic
 import com.mythly.app.domain.model.Story
 import com.mythly.app.domain.model.StoryUiState
 import com.mythly.app.domain.model.Value
+import com.mythly.app.domain.model.toName
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.theme.MythlyTheme
@@ -140,12 +141,12 @@ private fun StoryContent(
                 story.story.deities.forEach { deity ->
                     AssistChip(
                         onClick = { },
-                        label = { Text(deity.displayName) }
+                        label = { Text(deity) }
                     )
                 }
                 AssistChip(
                     onClick = { },
-                    label = { Text(story.story.epic.displayName) }
+                    label = { Text(story.story.epic) }
                 )
                 AssistChip(
                     onClick = { },
@@ -206,7 +207,7 @@ private fun StoryContent(
                 story.story.values.forEach { value ->
                     SuggestionChip(
                         onClick = { },
-                        label = { Text(value.name) }
+                        label = { Text(value) }
                     )
                 }
             }
@@ -282,15 +283,15 @@ fun StoryContentPreview() {
                                 where he would face great trials and demonstrate the true meaning of dharma, loyalty, and sacrifice.
                             """.trimIndent(),
                             moralLesson = "True nobility lies not in power or position, but in unwavering adherence to dharma and duty, even when it requires great personal sacrifice.",
-                            deities = listOf(Deity.RAMA),
-                            epic = Epic.RAMAYANA,
+                            deities = listOf(Deity.RAMA).map { it.toName() },
+                            epic = Epic.RAMAYANA.displayName,
                             readTimeMinutes = 12,
                             datePublished = Clock.System.now().toEpochMilliseconds(),
                             values = listOf(
                                 Value.DHARMA,
                                 Value.COURAGE,
                                 Value.DUTY
-                            ),
+                            ).map { it.toName() },
                             imageUrl = "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80"
                         ),
                         isRead = false,

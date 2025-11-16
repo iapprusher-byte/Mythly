@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "081c8087e5272fd2ccd84481a07aa78c",
+    "identityHash": "a28538f1a5c87c8bfdbe284ac37c3b14",
     "entities": [
       {
         "tableName": "stories",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `content` TEXT NOT NULL, `moralLesson` TEXT NOT NULL, `deity` TEXT NOT NULL, `epic` TEXT NOT NULL, `values` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `readTimeMinutes` INTEGER NOT NULL, `datePublished` INTEGER NOT NULL, `audioUrl` TEXT, `sanskritTitle` TEXT, `relatedStoryIds` TEXT NOT NULL, `isRead` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `lastReadAt` INTEGER, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `content` TEXT NOT NULL, `moralLesson` TEXT NOT NULL, `deities` TEXT NOT NULL, `epic` TEXT NOT NULL, `values` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `readTimeMinutes` INTEGER NOT NULL, `datePublished` INTEGER NOT NULL, `audioUrl` TEXT, `isRead` INTEGER NOT NULL, `isFavorite` INTEGER NOT NULL, `lastReadAt` INTEGER, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -33,8 +33,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "deity",
-            "columnName": "deity",
+            "fieldPath": "deities",
+            "columnName": "deities",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -72,17 +72,6 @@
             "fieldPath": "audioUrl",
             "columnName": "audioUrl",
             "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "sanskritTitle",
-            "columnName": "sanskritTitle",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "relatedStoryIds",
-            "columnName": "relatedStoryIds",
-            "affinity": "TEXT",
-            "notNull": true
           },
           {
             "fieldPath": "isRead",
@@ -229,7 +218,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '081c8087e5272fd2ccd84481a07aa78c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a28538f1a5c87c8bfdbe284ac37c3b14')"
     ]
   }
 }

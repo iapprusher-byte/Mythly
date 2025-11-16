@@ -9,10 +9,7 @@ import org.koin.dsl.module
 val dataModule = module {
     // Repositories
     single<StoryRepository> {
-        StoryRepositoryImpl(
-            storyDao = get(),
-            jsonContent = get() // Provided by platform module
-        )
+        StoryRepositoryImpl(storyDao = get())
     }
 
     single<UserRepository> {

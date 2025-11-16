@@ -15,6 +15,7 @@ import com.mythly.app.domain.model.Epic
 import com.mythly.app.domain.model.Story
 import com.mythly.app.domain.model.StoryUiState
 import com.mythly.app.domain.model.Value
+import com.mythly.app.domain.model.toName
 import com.mythly.app.presentation.components.EmptyState
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
@@ -170,14 +171,14 @@ fun LibraryScreenPreview() {
                                     content = "A powerful story about ancient wisdom...",
                                     moralLesson = "Wisdom and compassion",
                                     deities = listOf(
-                                        listOf(Deity.VISHNU),
-                                        listOf(Deity.SHIVA),
-                                        listOf(Deity.RAMA)
+                                        listOf(Deity.VISHNU).map { it.toName() },
+                                        listOf(Deity.SHIVA).map { it.toName() },
+                                        listOf(Deity.RAMA).map { it.toName() }
                                     )[index],
-                                    epic = Epic.BHAGAVATA_PURANA,
+                                    epic = Epic.BHAGAVATA_PURANA.displayName,
                                     readTimeMinutes = 8,
                                     datePublished = Clock.System.now().toEpochMilliseconds(),
-                                    values = listOf(Value.WISDOM, Value.COMPASSION),
+                                    values = listOf(Value.WISDOM, Value.COMPASSION).map { it.toName() },
                                     imageUrl = listOf(
                                         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
                                         "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800&q=80",

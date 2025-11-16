@@ -17,7 +17,7 @@ import com.mythly.app.data.local.entity.UserStatsEntity
         UserStatsEntity::class,
         ReadingSessionEntity::class
     ],
-    version = 2,
+    version = 1,
     exportSchema = true
 )
 @TypeConverters(StoryConverters::class)

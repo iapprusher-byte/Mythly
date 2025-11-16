@@ -18,9 +18,9 @@ data class StoryEntity(
     val title: String,
     val content: String,
     val moralLesson: String,
-    val deities: List<Deity>,
-    val epic: Epic,
-    val values: List<Value>,
+    val deities: List<String>,
+    val epic: String,
+    val values: List<String>,
     val imageUrl: String,
     val readTimeMinutes: Int,
     val datePublished: Long,
@@ -32,22 +32,12 @@ data class StoryEntity(
 
 class StoryConverters {
     @TypeConverter
-    fun fromValuesList(values: List<Value>): String {
+    fun fromValuesList(values: List<String>): String {
         return Json.encodeToString(values)
     }
 
     @TypeConverter
-    fun toValuesList(valuesString: String): List<Value> {
+    fun toValuesList(valuesString: String): List<String> {
         return Json.decodeFromString(valuesString)
-    }
-
-    @TypeConverter
-    fun fromDeitiesList(deities: List<Deity>): String {
-        return Json.encodeToString(deities)
-    }
-
-    @TypeConverter
-    fun toDeitiesList(deitiesString: String): List<Deity> {
-        return Json.decodeFromString(deitiesString)
     }
 }

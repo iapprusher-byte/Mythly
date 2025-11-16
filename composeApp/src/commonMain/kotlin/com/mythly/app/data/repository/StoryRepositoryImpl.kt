@@ -10,12 +10,12 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import mythly.composeapp.generated.resources.Res
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 
 class StoryRepositoryImpl(
     private val storyDao: StoryDao,
-    private val jsonContent: String
 ) : StoryRepository {
 
     private val logger = Logger.withTag("StoryRepository")
@@ -74,14 +74,20 @@ class StoryRepositoryImpl(
             logger.d { "Loading initial content..." }
 
             // Check if already loaded
-            val existingStories = storyDao.getAllStories().first()
+          /*  val existingStories = storyDao.getAllStories().first()
             if (existingStories.isNotEmpty()) {
                 logger.i { "Stories already loaded. Count: ${existingStories.size}" }
                 return Result.success(Unit)
-            }
+            }*/
+
+            val jsonContent = Res.readBytes("files/dummy_stories.json").decodeToString()
 
             // Parse JSON
-            val json = Json { ignoreUnknownKeys = true }
+            val json = Json {
+                ignoreUnknownKeys = true
+                isLenient = true
+                prettyPrint = true
+            }
             val storiesData = json.decodeFromString<StoriesContainer>(jsonContent)
             logger.i { "Parsed ${storiesData.stories.size} stories from JSON" }
 
@@ -98,7 +104,7 @@ class StoryRepositoryImpl(
                     imageUrl = dto.imageUrl,
                     readTimeMinutes = dto.readTimeMinutes,
                     datePublished = dto.datePublished,
-                    audioUrl = dto.audioUrl
+                    audioUrl = null
                 )
             }
 
@@ -144,11 +150,10 @@ private data class StoryDto(
     val title: String,
     val content: String,
     val moralLesson: String,
-    val deities: List<Deity>,
-    val epic: Epic,
-    val values: List<Value>,
+    val deities: List<String>,
+    val epic: String,
+    val values: List<String>,
     val imageUrl: String,
     val readTimeMinutes: Int,
     val datePublished: Long,
-    val audioUrl: String? = null
 )

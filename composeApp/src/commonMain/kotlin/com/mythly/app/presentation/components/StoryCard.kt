@@ -16,6 +16,7 @@ import com.mythly.app.domain.model.Story
 import com.mythly.app.domain.model.Deity
 import com.mythly.app.domain.model.Epic
 import com.mythly.app.domain.model.Value
+import com.mythly.app.domain.model.toName
 import com.mythly.app.presentation.theme.MythlyTheme
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Clock
@@ -108,7 +109,7 @@ fun StoryCard(
                             onClick = { },
                             label = {
                                 Text(
-                                    text = deity.displayName,
+                                    text = deity,
                                     style = MaterialTheme.typography.labelSmall
                                 )
                             }
@@ -161,14 +162,14 @@ fun StoryCardPreview() {
                     title = "The Tale of Lord Vishnu",
                     content = "A powerful story about the preserver of the universe...",
                     moralLesson = "Preserve and protect the good in the world",
-                    deities = listOf(Deity.VISHNU),
-                    epic = Epic.BHAGAVATA_PURANA,
+                    deities = listOf(Deity.VISHNU).map { it.toName() },
+                    epic = Epic.BHAGAVATA_PURANA.displayName,
                     readTimeMinutes = 8,
                     datePublished = Clock.System.now().toEpochMilliseconds(),
                     values = listOf(
                         Value.COMPASSION,
                         Value.DUTY
-                    ),
+                    ).map { it.toName() },
                     imageUrl = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
                 ),
                 isRead = false,
@@ -191,14 +192,14 @@ fun StoryCardReadPreview() {
                     title = "Krishna and the Butter",
                     content = "The mischievous adventures of young Krishna...",
                     moralLesson = "Joy and innocence are divine qualities",
-                    deities = listOf(Deity.KRISHNA),
-                    epic = Epic.BHAGAVATA_PURANA,
+                    deities = listOf(Deity.KRISHNA).map { it.toName() },
+                    epic = Epic.BHAGAVATA_PURANA.displayName,
                     readTimeMinutes = 5,
                     datePublished = Clock.System.now().toEpochMilliseconds(),
                     values = listOf(
                         Value.DEVOTION,
                         Value.HUMILITY
-                    ),
+                    ).map { it.toName() },
                     imageUrl = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80"
                 ),
                 isRead = true,

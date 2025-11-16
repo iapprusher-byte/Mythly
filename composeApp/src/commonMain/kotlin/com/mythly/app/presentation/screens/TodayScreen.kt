@@ -129,14 +129,14 @@ fun TodayContentPreview() {
                             title = "The Legend of Lord Rama",
                             content = "The epic tale of Lord Rama, the seventh avatar of Vishnu...",
                             moralLesson = "Righteousness and dharma always triumph",
-                            deities = listOf(Deity.RAMA),
-                            epic = Epic.RAMAYANA,
+                            deities = listOf(Deity.RAMA).map { it.toName() },
+                            epic = Epic.RAMAYANA.displayName,
                             readTimeMinutes = 12,
                             datePublished = Clock.System.now().toEpochMilliseconds(),
                             values = listOf(
                                 Value.DHARMA,
                                 Value.COURAGE
-                            ),
+                            ).map { it.toName() },
                             imageUrl = "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80"
                         ),
                         isRead = false,

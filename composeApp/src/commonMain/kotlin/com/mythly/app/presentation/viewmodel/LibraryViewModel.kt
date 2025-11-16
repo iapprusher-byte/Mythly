@@ -6,6 +6,7 @@ import co.touchlab.kermit.Logger
 import com.mythly.app.domain.model.Deity
 import com.mythly.app.domain.model.Epic
 import com.mythly.app.domain.model.StoryUiState
+import com.mythly.app.domain.model.toName
 import com.mythly.app.domain.usecase.GetAllStoriesUseCase
 import com.mythly.app.domain.usecase.SearchStoriesUseCase
 import kotlinx.coroutines.flow.*
@@ -134,8 +135,8 @@ class LibraryViewModel(
 
         return when (filter) {
             is LibraryFilter.All -> stories
-            is LibraryFilter.ByDeity -> stories.filter { filter.deity in it.story.deities }
-            is LibraryFilter.ByEpic -> stories.filter { it.story.epic == filter.epic }
+            is LibraryFilter.ByDeity -> stories.filter { filter.deity.toName() in it.story.deities }
+            is LibraryFilter.ByEpic -> stories.filter { it.story.epic.equals(filter.epic.displayName, ignoreCase = true) }
             is LibraryFilter.Read -> stories.filter { it.isRead }
             is LibraryFilter.Favorites -> stories.filter { it.isFavorite }
         }
