@@ -10,8 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.mythly.app.domain.model.UserStats
+import com.mythly.app.presentation.theme.MythlyTheme
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Zap
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun StreakWidget(
@@ -87,6 +89,46 @@ fun StreakWidget(
                     color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
                 )
             }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun StreakWidgetPreview() {
+    MythlyTheme {
+        Surface {
+            StreakWidget(
+                userStats = UserStats(
+                    currentStreak = 7,
+                    longestStreak = 15,
+                    totalStoriesRead = 42,
+                    totalReadingTimeMinutes = 336,
+                    readingStreak7Day = true,
+                    readingStreak30Day = false,
+                    readingStreak100Day = false
+                )
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun StreakWidgetLongStreakPreview() {
+    MythlyTheme(darkTheme = true) {
+        Surface {
+            StreakWidget(
+                userStats = UserStats(
+                    currentStreak = 105,
+                    longestStreak = 150,
+                    totalStoriesRead = 215,
+                    totalReadingTimeMinutes = 1720,
+                    readingStreak7Day = true,
+                    readingStreak30Day = true,
+                    readingStreak100Day = true
+                )
+            )
         }
     }
 }
