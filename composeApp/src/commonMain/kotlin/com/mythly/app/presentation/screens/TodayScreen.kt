@@ -135,7 +135,7 @@ fun TodayContentPreview() {
                                 Value.DHARMA,
                                 Value.COURAGE
                             ),
-                            imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Lord+Rama"
+                            imageUrl = "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80"
                         ),
                         isRead = false,
                         isFavorite = false

@@ -8,7 +8,7 @@
       "deities": ["KRISHNA"],
       "epic": "BHAGAVATA_PURANA",
       "values": ["DEVOTION", "COMPASSION"],
-      "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704067200000
     },
@@ -20,7 +20,7 @@
       "deities": ["RAMA"],
       "epic": "RAMAYANA",
       "values": ["COMPASSION", "DUTY", "LOYALTY"],
-      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704153600000
     },
@@ -32,7 +32,7 @@
       "deities": ["GANESHA"],
       "epic": "FOLKLORE",
       "values": ["WISDOM", "DEVOTION", "HUMILITY"],
-      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 3,
       "datePublished": 1704240000000
     },
@@ -44,7 +44,7 @@
       "deities": ["HANUMAN"],
       "epic": "RAMAYANA",
       "values": ["COURAGE", "DEVOTION", "PERSEVERANCE"],
-      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704326400000
     },
@@ -56,7 +56,7 @@
       "deities": ["SHIVA"],
       "epic": "SHIVA_PURANA",
       "values": ["WISDOM", "DHARMA", "COURAGE"],
-      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704412800000
     },
@@ -68,7 +68,7 @@
       "deities": ["DURGA"],
       "epic": "DEVI_MAHATMYA",
       "values": ["COURAGE", "DHARMA", "PERSEVERANCE"],
-      "imageUrl": "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1609619385002-8d03e5bb8415?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 5,
       "datePublished": 1704499200000
     },
@@ -80,7 +80,7 @@
       "deities": ["KRISHNA"],
       "epic": "BHAGAVATA_PURANA",
       "values": ["WISDOM", "COURAGE", "COMPASSION"],
-      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704585600000
     },
@@ -92,7 +92,7 @@
       "deities": ["RAMA"],
       "epic": "RAMAYANA",
       "values": ["HUMILITY", "COMPASSION", "DEVOTION"],
-      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1548690596-1c13f5f51c3c?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 3,
       "datePublished": 1704672000000
     },
@@ -104,7 +104,7 @@
       "deities": ["GANESHA"],
       "epic": "MAHABHARATA",
       "values": ["WISDOM", "PATIENCE", "HUMILITY"],
-      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704758400000
     },
@@ -116,7 +116,7 @@
       "deities": ["VISHNU"],
       "epic": "BHAGAVATA_PURANA",
       "values": ["HUMILITY", "DHARMA", "DEVOTION"],
-      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1571897401841-559e42875ff2?w=800&q=80&auto=format&fit=crop",
       "readTimeMinutes": 4,
       "datePublished": 1704844800000
     }

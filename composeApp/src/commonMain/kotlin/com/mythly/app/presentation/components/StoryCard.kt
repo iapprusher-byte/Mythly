@@ -167,7 +167,7 @@ fun StoryCardPreview() {
                         Value.COMPASSION,
                         Value.DUTY
                     ),
-                    imageUrl = "https://placehold.co/600x400/004E89/FFFFFF/png?text=Lord+Vishnu"
+                    imageUrl = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
                 ),
                 isRead = false,
                 isFavorite = false
@@ -196,7 +196,7 @@ fun StoryCardReadPreview() {
                         Value.DEVOTION,
                         Value.HUMILITY
                     ),
-                    imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Krishna"
+                    imageUrl = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80"
                 ),
                 isRead = true,
                 isFavorite = true
