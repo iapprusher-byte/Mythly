@@ -5,16 +5,17 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.mythly.app.presentation.theme.MythlyTheme
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
  * Splash Screen - Initial loading screen with app branding
@@ -25,10 +26,10 @@ fun SplashScreen(
     modifier: Modifier = Modifier,
     onSplashComplete: () -> Unit = {}
 ) {
-    // Gradient background from cream to white
+    // Gradient background from primaryContainer to background
     val gradientColors = listOf(
-        Color(0xFFFFF8F0),  // #FFF8F0
-        Color.White
+        MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f),
+        MaterialTheme.colorScheme.background
     )
 
     Box(
@@ -52,7 +53,7 @@ fun SplashScreen(
             // In production, use actual SVG/vector asset
             LotusIcon(
                 modifier = Modifier.size(112.dp),
-                tint = Color(0xFFFF9933)  // Primary color
+                tint = MaterialTheme.colorScheme.primary
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -60,12 +61,10 @@ fun SplashScreen(
             // App Name
             Text(
                 text = "Mythly",
-                fontSize = 32.sp,
+                style = MaterialTheme.typography.displayMedium,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF333333),
-                letterSpacing = (-0.3).sp,
-                // Use serif font family - will be styled with Playfair Display
-                style = MaterialTheme.typography.displayMedium
+                color = MaterialTheme.colorScheme.onBackground,
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -73,10 +72,9 @@ fun SplashScreen(
             // Tagline
             Text(
                 text = "Ancient wisdom, daily",
-                fontSize = 16.sp,
-                color = Color(0xFF757575),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.weight(0.5f))
@@ -84,7 +82,7 @@ fun SplashScreen(
             // Loading Spinner
             CircularProgressIndicator(
                 modifier = Modifier.size(32.dp),
-                color = Color(0xFFFF9933),
+                color = MaterialTheme.colorScheme.primary,
                 strokeWidth = 2.dp
             )
 
@@ -100,7 +98,7 @@ fun SplashScreen(
 @Composable
 private fun LotusIcon(
     modifier: Modifier = Modifier,
-    tint: Color = Color(0xFFFF9933)
+    tint: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color(0xFFFF9933)
 ) {
     // Placeholder - using a simple circular icon
     // In production, convert the SVG lotus from HTML to vector drawable
@@ -110,7 +108,7 @@ private fun LotusIcon(
     ) {
         Text(
             text = "🪷",  // Lotus emoji as placeholder
-            fontSize = 80.sp
+            style = MaterialTheme.typography.displayLarge
         )
     }
 }
@@ -118,14 +116,12 @@ private fun LotusIcon(
 /**
  * Preview for Splash Screen (Light theme)
  */
-//@Preview(
-//    name = "Splash Screen - Light",
-//    showBackground = true,
-//    backgroundColor = 0xFFFFFFFF
-//)
-//@Composable
-//private fun SplashScreenPreview() {
-//    MythlyTheme {
-//        SplashScreen()
-//    }
-//}
+@Preview
+@Composable
+private fun SplashScreenPreview() {
+    MythlyTheme {
+        Surface {
+            SplashScreen()
+        }
+    }
+}
