@@ -7,7 +7,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -21,6 +20,8 @@ import com.mythly.app.presentation.viewmodel.TodayViewModel
 import com.mythly.app.presentation.viewmodel.TodayUiState
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 @Composable
 fun TodayScreen(
@@ -52,7 +53,7 @@ fun TodayScreen(
 
 @Composable
 private fun TodayContent(
-    uiState: com.mythly.app.presentation.viewmodel.TodayUiState,
+    uiState: TodayUiState,
     onStoryClick: (String) -> Unit
 ) {
     Column(
@@ -102,7 +103,7 @@ private fun TodayContent(
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 StoryCard(
-                    story = story,
+                    storyUiState = story,
                     onClick = { onStoryClick(story.story.id) }
                 )
             }
@@ -113,6 +114,7 @@ private fun TodayContent(
     }
 }
 
+@OptIn(ExperimentalTime::class)
 @Preview
 @Composable
 fun TodayContentPreview() {
@@ -130,7 +132,7 @@ fun TodayContentPreview() {
                             deities = listOf(Deity.RAMA),
                             epic = Epic.RAMAYANA,
                             readTimeMinutes = 12,
-                            datePublished = System.currentTimeMillis(),
+                            datePublished = Clock.System.now().toEpochMilliseconds(),
                             values = listOf(
                                 Value.DHARMA,
                                 Value.COURAGE

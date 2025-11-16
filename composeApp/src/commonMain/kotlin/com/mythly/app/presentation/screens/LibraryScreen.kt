@@ -92,7 +92,7 @@ fun LibraryScreen(
                         key = { it.story.id }
                     ) { story ->
                         StoryCard(
-                            story = story,
+                            storyUiState = story,
                             onClick = { onStoryClick(story.story.id) }
                         )
                     }

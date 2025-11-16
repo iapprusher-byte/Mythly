@@ -7,7 +7,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -22,10 +21,12 @@ import compose.icons.FeatherIcons
 import compose.icons.feathericons.Clock
 import compose.icons.feathericons.CheckCircle
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 @Composable
 fun StoryCard(
-    story: StoryUiState,
+    storyUiState: StoryUiState,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     showReadStatus: Boolean = true
@@ -45,14 +46,14 @@ fun StoryCard(
                     .height(180.dp)
             ) {
                 AsyncImage(
-                    model = story.story.imageUrl,
-                    contentDescription = story.story.title,
+                    model = storyUiState.story.imageUrl,
+                    contentDescription = storyUiState.story.title,
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
 
                 // Read indicator overlay
-                if (showReadStatus && story.isRead) {
+                if (showReadStatus && storyUiState.isRead) {
                     Surface(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
@@ -87,7 +88,7 @@ fun StoryCard(
             ) {
                 // Title
                 Text(
-                    text = story.story.title,
+                    text = storyUiState.story.title,
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                     maxLines = 2,
@@ -102,7 +103,7 @@ fun StoryCard(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     // Deity badges (display all deities)
-                    story.story.deities.take(2).forEach { deity ->
+                    storyUiState.story.deities.take(2).forEach { deity ->
                         SuggestionChip(
                             onClick = { },
                             label = {
@@ -115,9 +116,9 @@ fun StoryCard(
                     }
 
                     // Show "+N more" if there are additional deities
-                    if (story.story.deities.size > 2) {
+                    if (storyUiState.story.deities.size > 2) {
                         Text(
-                            text = "+${story.story.deities.size - 2}",
+                            text = "+${storyUiState.story.deities.size - 2}",
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -137,7 +138,7 @@ fun StoryCard(
                             tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = "${story.story.readTimeMinutes} min",
+                            text = "${storyUiState.story.readTimeMinutes} min",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -148,12 +149,13 @@ fun StoryCard(
     }
 }
 
+@OptIn(ExperimentalTime::class)
 @Preview
 @Composable
 fun StoryCardPreview() {
     MythlyTheme {
         StoryCard(
-            story = StoryUiState(
+            storyUiState = StoryUiState(
                 story = Story(
                     id = "1",
                     title = "The Tale of Lord Vishnu",
@@ -162,7 +164,7 @@ fun StoryCardPreview() {
                     deities = listOf(Deity.VISHNU),
                     epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 8,
-                    datePublished = System.currentTimeMillis(),
+                    datePublished = Clock.System.now().toEpochMilliseconds(),
                     values = listOf(
                         Value.COMPASSION,
                         Value.DUTY
@@ -177,12 +179,13 @@ fun StoryCardPreview() {
     }
 }
 
+@OptIn(ExperimentalTime::class)
 @Preview
 @Composable
 fun StoryCardReadPreview() {
     MythlyTheme {
         StoryCard(
-            story = StoryUiState(
+            storyUiState = StoryUiState(
                 story = Story(
                     id = "2",
                     title = "Krishna and the Butter",
@@ -191,7 +194,7 @@ fun StoryCardReadPreview() {
                     deities = listOf(Deity.KRISHNA),
                     epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 5,
-                    datePublished = System.currentTimeMillis(),
+                    datePublished = Clock.System.now().toEpochMilliseconds(),
                     values = listOf(
                         Value.DEVOTION,
                         Value.HUMILITY
