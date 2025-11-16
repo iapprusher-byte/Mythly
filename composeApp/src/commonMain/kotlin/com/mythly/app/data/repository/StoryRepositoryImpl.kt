@@ -90,15 +90,13 @@ class StoryRepositoryImpl(
                     title = dto.title,
                     content = dto.content,
                     moralLesson = dto.moralLesson,
-                    deity = dto.deity,
+                    deities = dto.deities,
                     epic = dto.epic,
                     values = dto.values,
                     imageUrl = dto.imageUrl,
                     readTimeMinutes = dto.readTimeMinutes,
                     datePublished = dto.datePublished,
-                    audioUrl = dto.audioUrl,
-                    sanskritTitle = dto.sanskritTitle,
-                    relatedStoryIds = dto.relatedStoryIds ?: emptyList()
+                    audioUrl = dto.audioUrl
                 )
             }
 
@@ -119,15 +117,13 @@ class StoryRepositoryImpl(
             title = title,
             content = content,
             moralLesson = moralLesson,
-            deity = deity,
+            deities = deities,
             epic = epic,
             values = values,
             imageUrl = imageUrl,
             readTimeMinutes = readTimeMinutes,
             datePublished = datePublished,
-            audioUrl = audioUrl,
-            sanskritTitle = sanskritTitle,
-            relatedStoryIds = relatedStoryIds
+            audioUrl = audioUrl
         ),
         isRead = isRead,
         isFavorite = isFavorite,
@@ -146,13 +142,11 @@ private data class StoryDto(
     val title: String,
     val content: String,
     val moralLesson: String,
-    val deity: Deity,
+    val deities: List<Deity>,
     val epic: Epic,
     val values: List<Value>,
     val imageUrl: String,
     val readTimeMinutes: Int,
     val datePublished: Long,
-    val audioUrl: String? = null,
-    val sanskritTitle: String? = null,
-    val relatedStoryIds: List<String>? = null
+    val audioUrl: String? = null
 )
