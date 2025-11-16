@@ -22,13 +22,11 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,13 +35,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import com.mythly.app.presentation.components.MythlyButton
+import com.mythly.app.presentation.components.MythlyTextButton
+import com.mythly.app.presentation.theme.MythlyTheme
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
  * Onboarding Screen with pager for multiple onboarding pages
@@ -66,7 +66,7 @@ fun OnboardingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         when (pages[currentPage]) {
             is OnboardingPage.First -> FirstOnboardingPage(
@@ -110,7 +110,7 @@ private fun FirstOnboardingPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(MaterialTheme.colorScheme.background),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Image Section (fixed 300dp height)
@@ -118,7 +118,7 @@ private fun FirstOnboardingPage(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.35f)
-                .background(Color(0xFFFFF8F0)),
+                .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)),
             contentAlignment = Alignment.Center
         ) {
             AsyncImage(
@@ -145,11 +145,10 @@ private fun FirstOnboardingPage(
                 // Heading
                 Text(
                     text = title,
-                    fontSize = 24.sp,
+                    style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF333333),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 34.sp
+                    color = MaterialTheme.colorScheme.onBackground,
+                    textAlign = TextAlign.Center
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -157,10 +156,9 @@ private fun FirstOnboardingPage(
                 // Description
                 Text(
                     text = description,
-                    fontSize = 16.sp,
-                    color = Color(0xFF808080),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 24.sp
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
@@ -179,37 +177,20 @@ private fun FirstOnboardingPage(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 // Continue Button
-                Button(
+                MythlyButton(
+                    text = "Continue",
                     onClick = onContinue,
-                    modifier = Modifier
-                        .fillMaxWidth(0.7f)
-                        .height(42.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFFF9933)
-                    ),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Text(
-                        text = "Continue",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                    modifier = Modifier.fillMaxWidth(0.7f)
+                )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Skip Button
-                TextButton(
+                MythlyTextButton(
+                    text = "Skip",
                     onClick = onSkip,
                     modifier = Modifier.fillMaxWidth(0.7f)
-                        .height(42.dp),
-                ) {
-                    Text(
-                        text = "Skip",
-                        fontSize = 16.sp,
-                        color = Color(0xFF808080)
-                    )
-                }
+                )
             }
         }
     }
@@ -263,14 +244,14 @@ private fun ThirdOnboardingPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         // Header Image (fixed 300dp height)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.35f)
-                .background(Color(0xFFFFF8F0)),
+                .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)),
             contentAlignment = Alignment.Center
         ) {
             AsyncImage(
@@ -298,11 +279,10 @@ private fun ThirdOnboardingPage(
                 // Heading
                 Text(
                     text = "Choose Your Path",
-                    fontSize = 28.sp,
+                    style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF333333),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 34.sp
+                    color = MaterialTheme.colorScheme.onBackground,
+                    textAlign = TextAlign.Center
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -310,8 +290,8 @@ private fun ThirdOnboardingPage(
                 // Subheading
                 Text(
                     text = "Which deity resonates with you?",
-                    fontSize = 16.sp,
-                    color = Color(0xFF808080),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
 
@@ -343,22 +323,11 @@ private fun ThirdOnboardingPage(
             }
 
             // Start Journey Button
-            Button(
+            MythlyButton(
+                text = "Start My Journey",
                 onClick = onComplete,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFFF9933)
-                ),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text(
-                    text = "Start My Journey",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
@@ -384,9 +353,9 @@ private fun PageIndicators(
                     .clip(CircleShape)
                     .background(
                         if (index == currentPage)
-                            Color(0xFFFF9933)  // Active indicator
+                            MaterialTheme.colorScheme.primary  // Active indicator
                         else
-                            Color(0xFFFF9933).copy(alpha = 0.3f)  // Inactive indicator
+                            MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)  // Inactive indicator
                     )
             )
         }
@@ -409,11 +378,17 @@ private fun DeityCard(
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) Color(0xFFFFF8F0) else Color.White
+            containerColor = if (isSelected)
+                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+            else
+                MaterialTheme.colorScheme.surface
         ),
         border = BorderStroke(
             width = if (isSelected) 2.dp else 1.dp,
-            color = if (isSelected) Color(0xFFFF9933) else Color(0xFFE0E0E0)
+            color = if (isSelected)
+                MaterialTheme.colorScheme.primary
+            else
+                MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = if (isSelected) 4.dp else 1.dp
@@ -442,9 +417,12 @@ private fun DeityCard(
             // Deity Name
             Text(
                 text = deity.name,
-                fontSize = 14.sp,
+                style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.SemiBold,
-                color = if (isSelected) Color(0xFFFF9933) else Color(0xFF333333),
+                color = if (isSelected)
+                    MaterialTheme.colorScheme.primary
+                else
+                    MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 maxLines = 1
             )
@@ -468,4 +446,51 @@ private sealed class OnboardingPage {
     object First : OnboardingPage()
     object Second : OnboardingPage()
     object Third : OnboardingPage()
+}
+
+@Preview
+@Composable
+fun OnboardingScreenPreview() {
+    MythlyTheme {
+        Surface {
+            OnboardingScreen(
+                onComplete = {},
+                onSkip = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun DeityCardPreview() {
+    MythlyTheme {
+        Surface {
+            Row(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                DeityCard(
+                    deity = DeityInfo(
+                        "Ganesha",
+                        "🐘",
+                        "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=400&q=80&auto=format&fit=crop"
+                    ),
+                    isSelected = true,
+                    onClick = {},
+                    modifier = Modifier.width(100.dp)
+                )
+                DeityCard(
+                    deity = DeityInfo(
+                        "Krishna",
+                        "🪈",
+                        "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&q=80&auto=format&fit=crop"
+                    ),
+                    isSelected = false,
+                    onClick = {},
+                    modifier = Modifier.width(100.dp)
+                )
+            }
+        }
+    }
 }

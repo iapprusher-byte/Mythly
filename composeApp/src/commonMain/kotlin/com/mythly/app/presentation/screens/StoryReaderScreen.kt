@@ -11,13 +11,23 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.mythly.app.domain.model.Deity
+import com.mythly.app.domain.model.Epic
+import com.mythly.app.domain.model.Story
+import com.mythly.app.domain.model.StoryUiState
+import com.mythly.app.domain.model.Value
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
+import com.mythly.app.presentation.theme.MythlyTheme
+import com.mythly.app.presentation.viewmodel.StoryReaderUiState
 import com.mythly.app.presentation.viewmodel.StoryReaderViewModel
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.ArrowLeft
 import compose.icons.feathericons.Heart
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -241,6 +251,56 @@ private fun StoryContent(
 
             // Bottom spacing
             Spacer(modifier = Modifier.height(24.dp))
+        }
+    }
+}
+
+@OptIn(ExperimentalTime::class)
+@Preview
+@Composable
+fun StoryContentPreview() {
+    MythlyTheme {
+        Surface {
+            StoryContent(
+                uiState = StoryReaderUiState(
+                    isLoading = false,
+                    story = StoryUiState(
+                        story = Story(
+                            id = "1",
+                            title = "The Legend of Lord Rama",
+                            content = """
+                                In the ancient kingdom of Ayodhya, there lived a prince named Rama, the eldest son of King Dasharatha.
+                                Known for his righteousness, compassion, and unwavering adherence to dharma, Rama was beloved by all.
+
+                                When the time came for Rama to be crowned king, his stepmother Kaikeyi, influenced by her maid,
+                                demanded that her son Bharata be made king instead, and that Rama be exiled to the forest for fourteen years.
+
+                                Though heartbroken, King Dasharatha had to honor the boons he had promised Kaikeyi long ago.
+                                Rama, ever dutiful, accepted the exile without hesitation, choosing to uphold his father's word over his own desires.
+
+                                Accompanied by his devoted wife Sita and loyal brother Lakshmana, Rama ventured into the forest,
+                                where he would face great trials and demonstrate the true meaning of dharma, loyalty, and sacrifice.
+                            """.trimIndent(),
+                            moralLesson = "True nobility lies not in power or position, but in unwavering adherence to dharma and duty, even when it requires great personal sacrifice.",
+                            deities = listOf(Deity.RAMA),
+                            epic = Epic.RAMAYANA,
+                            readTimeMinutes = 12,
+                            datePublished = Clock.System.now().toEpochMilliseconds(),
+                            values = listOf(
+                                Value.DHARMA,
+                                Value.COURAGE,
+                                Value.DUTY
+                            ),
+                            imageUrl = "https://images.unsplash.com/photo-1604608672516-f1b0e1f04b6a?w=800&q=80"
+                        ),
+                        isRead = false,
+                        isFavorite = false
+                    ),
+                    error = null,
+                    isMarkingAsRead = false
+                ),
+                onMarkAsRead = {}
+            )
         }
     }
 }

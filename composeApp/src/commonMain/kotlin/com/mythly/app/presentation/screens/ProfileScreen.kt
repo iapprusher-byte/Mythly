@@ -11,13 +11,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.mythly.app.domain.model.UserStats
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.components.StreakWidget
+import com.mythly.app.presentation.theme.MythlyTheme
+import com.mythly.app.presentation.viewmodel.ProfileUiState
 import com.mythly.app.presentation.viewmodel.ProfileViewModel
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.BookOpen
 import compose.icons.feathericons.Clock
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -244,6 +248,30 @@ private fun AchievementBadge(
                     )
                 }
             }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ProfileScreenPreview() {
+    MythlyTheme {
+        Surface {
+            ProfileContent(
+                uiState = ProfileUiState(
+                    isLoading = false,
+                    userStats = UserStats(
+                        currentStreak = 7,
+                        longestStreak = 15,
+                        totalStoriesRead = 42,
+                        totalReadingTimeMinutes = 336,
+                        readingStreak7Day = true,
+                        readingStreak30Day = false,
+                        readingStreak100Day = false
+                    ),
+                    error = null
+                )
+            )
         }
     }
 }
