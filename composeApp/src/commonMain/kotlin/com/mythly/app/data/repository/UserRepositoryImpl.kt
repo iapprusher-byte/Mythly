@@ -10,7 +10,8 @@ import com.mythly.app.domain.model.UserStats
 import com.mythly.app.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.datetime.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.Clock
 import kotlin.math.abs
 
 class UserRepositoryImpl(
@@ -25,6 +26,7 @@ class UserRepositoryImpl(
             entity?.toModel() ?: UserStats()
         }
 
+    @OptIn(ExperimentalTime::class)
     override suspend fun updateStreak() {
         try {
             val stats = userStatsDao.getUserStatsOnce() ?: UserStatsEntity()
