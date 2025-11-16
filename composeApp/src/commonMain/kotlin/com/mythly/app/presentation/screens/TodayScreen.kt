@@ -11,11 +11,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.mythly.app.domain.model.*
 import com.mythly.app.presentation.components.ErrorState
 import com.mythly.app.presentation.components.LoadingState
 import com.mythly.app.presentation.components.StoryCard
 import com.mythly.app.presentation.components.StreakWidget
+import com.mythly.app.presentation.theme.MythlyTheme
 import com.mythly.app.presentation.viewmodel.TodayViewModel
+import com.mythly.app.presentation.viewmodel.TodayUiState
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -106,5 +110,49 @@ private fun TodayContent(
 
         // Bottom spacing
         Spacer(modifier = Modifier.height(24.dp))
+    }
+}
+
+@Preview
+@Composable
+fun TodayContentPreview() {
+    MythlyTheme {
+        Surface {
+            TodayContent(
+                uiState = TodayUiState(
+                    isLoading = false,
+                    todayStory = StoryUiState(
+                        story = Story(
+                            id = "1",
+                            title = "The Legend of Lord Rama",
+                            sanskritTitle = "रामायणम्",
+                            content = "The epic tale of Lord Rama, the seventh avatar of Vishnu...",
+                            moralLesson = "Righteousness and dharma always triumph",
+                            deity = Deity(id = "1", name = "Rama", description = "The Ideal King"),
+                            epic = Epic(id = "1", name = "Ramayana"),
+                            readTimeMinutes = 12,
+                            values = listOf(
+                                Value(id = "1", name = "Righteousness", description = ""),
+                                Value(id = "2", name = "Courage", description = "")
+                            ),
+                            imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Lord+Rama",
+                            difficulty = "Intermediate"
+                        ),
+                        isRead = false,
+                        isFavorite = false
+                    ),
+                    userStats = UserStats(
+                        currentStreak = 5,
+                        longestStreak = 12,
+                        totalStoriesRead = 28,
+                        totalReadingTimeMinutes = 224,
+                        readingStreak7Day = false,
+                        readingStreak30Day = false,
+                        readingStreak100Day = false
+                    )
+                ),
+                onStoryClick = {}
+            )
+        }
     }
 }

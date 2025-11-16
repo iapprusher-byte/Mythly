@@ -7,8 +7,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.mythly.app.presentation.theme.MythlyTheme
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.AlertCircle
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun ErrorState(
@@ -51,6 +53,32 @@ fun ErrorState(
                     Text("Try Again")
                 }
             }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ErrorStatePreview() {
+    MythlyTheme {
+        Surface {
+            ErrorState(
+                message = "Failed to load stories. Please check your connection.",
+                onRetry = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ErrorStateNoRetryPreview() {
+    MythlyTheme(darkTheme = true) {
+        Surface {
+            ErrorState(
+                message = "Unable to connect to the server",
+                onRetry = null
+            )
         }
     }
 }
