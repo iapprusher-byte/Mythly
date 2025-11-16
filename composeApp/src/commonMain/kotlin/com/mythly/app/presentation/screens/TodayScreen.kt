@@ -128,15 +128,15 @@ fun TodayContentPreview() {
                             sanskritTitle = "रामायणम्",
                             content = "The epic tale of Lord Rama, the seventh avatar of Vishnu...",
                             moralLesson = "Righteousness and dharma always triumph",
-                            deity = Deity(id = "1", name = "Rama", description = "The Ideal King"),
-                            epic = Epic(id = "1", name = "Ramayana"),
+                            deity = Deity.RAMA,
+                            epic = Epic.RAMAYANA,
                             readTimeMinutes = 12,
+                            datePublished = System.currentTimeMillis(),
                             values = listOf(
-                                Value(id = "1", name = "Righteousness", description = ""),
-                                Value(id = "2", name = "Courage", description = "")
+                                Value.DHARMA,
+                                Value.COURAGE
                             ),
-                            imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Lord+Rama",
-                            difficulty = "Intermediate"
+                            imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Lord+Rama"
                         ),
                         isRead = false,
                         isFavorite = false

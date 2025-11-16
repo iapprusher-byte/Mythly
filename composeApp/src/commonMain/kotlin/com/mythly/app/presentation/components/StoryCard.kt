@@ -159,15 +159,15 @@ fun StoryCardPreview() {
                     sanskritTitle = "विष्णु कथा",
                     content = "A powerful story about the preserver of the universe...",
                     moralLesson = "Preserve and protect the good in the world",
-                    deity = Deity(id = "1", name = "Vishnu", description = "The Preserver"),
-                    epic = Epic(id = "1", name = "Bhagavata Purana"),
+                    deity = Deity.VISHNU,
+                    epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 8,
+                    datePublished = System.currentTimeMillis(),
                     values = listOf(
-                        Value(id = "1", name = "Protection", description = ""),
-                        Value(id = "2", name = "Duty", description = "")
+                        Value.COMPASSION,
+                        Value.DUTY
                     ),
-                    imageUrl = "https://placehold.co/600x400/004E89/FFFFFF/png?text=Lord+Vishnu",
-                    difficulty = "Beginner"
+                    imageUrl = "https://placehold.co/600x400/004E89/FFFFFF/png?text=Lord+Vishnu"
                 ),
                 isRead = false,
                 isFavorite = false
@@ -189,15 +189,15 @@ fun StoryCardReadPreview() {
                     sanskritTitle = "कृष्ण माखन चोर",
                     content = "The mischievous adventures of young Krishna...",
                     moralLesson = "Joy and innocence are divine qualities",
-                    deity = Deity(id = "2", name = "Krishna", description = "The Divine Child"),
-                    epic = Epic(id = "2", name = "Bhagavata Purana"),
+                    deity = Deity.KRISHNA,
+                    epic = Epic.BHAGAVATA_PURANA,
                     readTimeMinutes = 5,
+                    datePublished = System.currentTimeMillis(),
                     values = listOf(
-                        Value(id = "3", name = "Joy", description = ""),
-                        Value(id = "4", name = "Love", description = "")
+                        Value.DEVOTION,
+                        Value.HUMILITY
                     ),
-                    imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Krishna",
-                    difficulty = "Beginner"
+                    imageUrl = "https://placehold.co/600x400/FF6B35/FFFFFF/png?text=Krishna"
                 ),
                 isRead = true,
                 isFavorite = true
