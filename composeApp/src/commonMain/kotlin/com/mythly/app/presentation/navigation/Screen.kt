@@ -1,6 +1,8 @@
 package com.mythly.app.presentation.navigation
 
 sealed class Screen(val route: String) {
+    data object Splash : Screen("splash")
+    data object Onboarding : Screen("onboarding")
     data object Today : Screen("today")
     data object Library : Screen("library")
     data object Profile : Screen("profile")
